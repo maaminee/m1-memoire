@@ -1,0 +1,55 @@
+% =========================================================
+%  Section : Le théorème de Rokhlin
+% =========================================================
+
+\subsection{Rokhlin(1952)}
+
+Le théorème de Rokhlin, démontré en 1952, est la première obstruction différentielle connue
+à la réalisation d'une forme d'intersection en dimension $4$. Il concerne les variétés spin,
+c'est-à-dire, comme rappelé précédemment, les variétés dont la seconde classe de
+Stiefel-Whitney s'annule~: $w_2(TM) = 0$. Cette condition est équivalente, pour une variété
+simplement connexe, à ce que la forme d'intersection soit paire.
+
+\begin{theorem}[Rokhlin, 1952]\label{thm:rokhlin}
+  Soit $M$ une $4$-variété lisse compacte orientée fermée spin. Alors
+  \[
+    \sigma(M) \equiv 0 \pmod{16}.
+\]
+\end{theorem}
+
+La contrainte algébrique habituelle — que la signature d'une forme paire unimodulaire est
+divisible par $8$ — est ainsi doublée dès que la variété admet une structure lisse. C'est
+précisément cet écart entre $8$ et $16$ qui est d'origine différentielle.
+
+\subsubsection*{Applications et limites}
+
+La conséquence immédiate pour les formes d'intersection est la suivante~:
+
+\begin{corollary}\label{cor:rokhlin_e8}
+  Il n'existe pas de $4$-variété lisse compacte orientée fermée spin dont la forme
+  d'intersection est $Q_{E_8}$.
+\end{corollary}
+
+\begin{proof}
+  On a $\sigma(E_8) = 8 \not\equiv 0 \pmod{16}$.
+\end{proof}
+
+Plus généralement, toute forme paire unimodulaire dont la signature est congrue à $8$ modulo
+$16$ est exclue. Cela élimine par exemple $E_8$, $E_8 \oplus E_8 \oplus E_8$ (signature
+$24$), et plus généralement $E_8^{\oplus (2k+1)}$ pour tout $k \geq 0$.
+
+\medskip
+
+Le théorème de Rokhlin a cependant une limite importante~: il ne s'applique qu'aux variétés
+spin. Si $w_2(TM) \neq 0$, la forme d'intersection de $M$ est impaire, et le théorème ne
+donne aucune information. En particulier, il ne dit rien sur les formes définies positives
+impaires comme $\langle 1 \rangle^{\oplus n}$, ni sur les variétés non spin à forme paire mais
+indéfinie.
+
+\medskip
+
+C'est précisément pour lever cette restriction que le théorème de Donaldson, présenté dans la
+section suivante, représente un saut qualitatif majeur~: il fournit une obstruction à la
+lissabilité valable pour toute forme définie positive, sans aucune hypothèse sur la structure
+spin, en faisant intervenir des méthodes radicalement différentes issues de la géométrie des
+équations de Yang-Mills.

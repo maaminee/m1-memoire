@@ -1,0 +1,405 @@
+\section{Forme d'intersection}
+%==============================================================================
+
+Fixons $X$ une 4-variété \emph{lisse}.
+
+\begin{definition}[Classe homologique d'un plongement]
+Pour une surface fermée orientée lisse $\Sigma$ plongée dans $X$, on notera \emph{par abus de notation} $[\Sigma] \in H_2(X;\ZZ)$ la classe d'homologie correspondante, image de la classe fondamentale $[\Sigma] \in H_2(\Sigma;\ZZ)$ par le morphisme induit par le plongement.
+\end{definition}
+
+\begin{theorem}[Représentants lisses]
+\label{thm:smooth_rep}
+Soit $X$ une 4-variété fermée lisse orientée. Pour toute classe $\alpha \in H_2(X;\ZZ)$, il existe une surface fermée, orientée, lisse et \emph{plongée} $\Sigma \hookrightarrow X$ telle que $[\Sigma] = \alpha$.
+\end{theorem}
+
+\begin{proof}
+
+A voir.
+
+\end{proof}
+
+\begin{remark}
+En pratique, \textbf{en dimension 4, on peut toujours représenter une classe de $H_2$ par une surface lisse plongée (ou au moins immergée avec des intersections transverses que l'on peut contrôler algébriquement)}.
+\end{remark}
+
+\begin{lemma}[Invariance de classe d'homologie sous petite perturbation]
+Si $\Sigma_2'$ est une perturbation de $\Sigma_2$ (isotopie), alors $[\Sigma_2'] = [\Sigma_2] \in H_2(X;\ZZ)$.
+\end{lemma}
+\begin{proof}
+Une isotopie $F : \Sigma_2 \times [0,1] \to X$ fournit une 3-chaîne (une variété à bord) dont le bord est $\Sigma_2' - \Sigma_2$. En effet, considérons $W = F(\Sigma_2 \times [0,1])$. C'est une sous-variété de dimension $3$ à bord dans $X$, car $F$ est un plongement. Son bord est
+\[
+\partial W = F(\Sigma_2 \times \{1\}) \cup F(\Sigma_2 \times \{0\}) = \Sigma_2' \cup \Sigma_2.
+\]
+En choisissant l'orientation adéquate sur $W$ (celle induite par l'orientation de $\Sigma_2$ et l'orientation de $[0,1]$), le bord orienté est $\partial W = \Sigma_2' - \Sigma_2$ (le signe $-$ provient du fait que l'orientation de $\Sigma_2 \times \{0\}$ est opposée à celle de $\Sigma_2$ pour la convention du bord sortant). Ainsi, $[\Sigma_2'] - [\Sigma_2]$ est un bord dans $C_2(X)$, donc nul en homologie :
+\[
+[\Sigma_2'] = [\Sigma_2] \in H_2(X;\ZZ).
+\]
+\end{proof}
+
+
+
+\subsection{Transversalité}
+
+\begin{definition}[Transversalité de deux sous-variétés]
+Soient $M^m$ et $N^n$ deux sous-variétés lisses d'une variété ambiante $X^k$ (avec $m, n \leq k$). On dit que $M$ et $N$ sont \textbf{transverses} en $p \in M \cap N$ si
+\[
+  T_p M + T_p N = T_p X,
+\]
+c'est-à-dire si $T_p M$ et $T_p N$ engendrent $T_p X$. On dit que $M$ et $N$ sont \textbf{transverses} (en notation $M \pitchfork N$) si elles sont transverses en tout point de $M \cap N$.
+
+Lorsque $m + n = k$, la condition de transversalité en $p$ est équivalente à $T_p M \cap T_p N = \{0\}$. Dans le cas général, la dimension attendue de $M \cap N$ est $m + n - k$ (éventuellement négative, auquel cas $M \cap N = \emptyset$ génériquement).
+\end{definition}
+
+\begin{remark}
+Si $M \pitchfork N$, alors $M \cap N$ est une sous-variété lisse de $X$ de dimension $m + n - k$. En particulier :
+\begin{itemize}
+  \item si $m + n < k$, la transversalité implique $M \cap N = \emptyset$ ;
+  \item si $m + n = k$, l'intersection est un ensemble discret (fini si $M$ et $N$ sont compactes) ;
+  \item si $m + n > k$, l'intersection est une sous-variété de dimension $m + n - k > 0$.
+\end{itemize}
+\end{remark}
+
+\begin{definition}[Signe d'une intersection transverse]
+Soient $M^m$ et $N^n$ deux sous-variétés orientées plongées transversalement dans $X^{m+n}$ orientée. En un point $p \in M \cap N$, on définit le \textbf{signe d'intersection} $\varepsilon_p \in \{+1, -1\}$ par
+\[
+  \varepsilon_p = +1 \iff \text{la base orientée de } T_p M \oplus T_p N \text{ est positivement orientée dans } T_p X.
+\]
+Autrement dit, si $(e_1, \ldots, e_m)$ est une base orientée de $T_pM$ et $(f_1, \ldots, f_n)$ une base orientée de $T_pN$, alors
+\[
+  \varepsilon_p = \mathrm{sgn}\det(e_1, \ldots, e_m, f_1, \ldots, f_n),
+\]
+où le déterminant est calculé dans toute base orientée de $T_pX$.
+\end{definition}
+
+\begin{remark}
+Le signe $\varepsilon_p$ est bien défini (indépendant des bases choisies) et vérifie $\varepsilon_p(M, N) = (-1)^{mn}\, \varepsilon_p(N, M)$, ce qui reflète l'anticommutativité du produit d'intersection en cohomologie.
+\end{remark}
+
+
+
+\begin{definition}[Nombre d'intersection]
+\label{def:intersection_number}
+Soient $\Sigma_1, \Sigma_2$ lisses plongés et transverses. On définit
+\[
+  \Sigma_1 \cdot \Sigma_2 \;=\; \sum_{p \in \Sigma_\alpha \cap \Sigma_\beta} \varepsilon_p \;\in\;\ZZ.
+\]
+\end{definition}
+
+\begin{definition}[Bonne définition]
+\label{lem:welldefined}
+On définit $\alpha \cdot \beta$ = $\Sigma_\alpha \cdot \Sigma_\beta$ où $\Sigma_\alpha$ et $\Sigma_\beta$ sont des représentants lisses plongés transverses de $\alpha$ et $\beta$ respectivement (ce qui est possible par le Théorème~\ref{thm:smooth_rep} et le Lemme~\ref{lem:transv}) et l'on a indépendance du choix des représentants transverses.
+\end{definition}
+\begin{proof}
+A voir.
+\end{proof}
+
+\begin{definition}[Forme d'intersection]
+La \textbf{forme d'intersection} de $X$ est l'application
+\[
+  Q_X : H_2(X;\ZZ) \times H_2(X;\ZZ) \to \ZZ, \quad Q_X(\alpha,\beta) = \alpha \cdot \beta.
+\]
+
+.
+\end{definition}
+
+\subsection{Propriétés}
+
+\begin{proposition}[Symétrie de $Q_X$]
+\label{prop:sym}
+Pour toutes $\alpha, \beta \in H_2(X;\ZZ)$ :
+\[
+  Q_X(\alpha, \beta) = Q_X(\beta, \alpha).
+\]
+\end{proposition}
+
+\begin{proof}
+Soient $\Sigma_\alpha \pitchfork \Sigma_\beta$. En un point $p \in \Sigma_\alpha \cap \Sigma_\beta$, le signe $\varepsilon_p(\Sigma_\alpha, \Sigma_\beta)$ est $+1$ ssi la base $(e_1, e_2, f_1, f_2)$ est positive dans $T_pX$, où $(e_1,e_2)$ est une base orientée de $T_p\Sigma_\alpha$ et $(f_1,f_2)$ de $T_p\Sigma_\beta$.
+
+Le signe $\varepsilon_p(\Sigma_\beta, \Sigma_\alpha)$ est $+1$ ssi $(f_1, f_2, e_1, e_2)$ est positive dans $T_pX$.
+
+Or la permutation $(e_1,e_2,f_1,f_2) \mapsto (f_1,f_2,e_1,e_2)$ est une permutation de $4$ éléments composée de $4$ transpositions donc signe $(-1)^4 = +1$.
+
+Ainsi $\varepsilon_p(\Sigma_\alpha, \Sigma_\beta) = \varepsilon_p(\Sigma_\beta, \Sigma_\alpha)$, et en sommant sur $p \in \Sigma_\alpha \cap \Sigma_\beta = \Sigma_\beta \cap \Sigma_\alpha$ :
+\[
+  Q_X(\alpha,\beta) = \sum_p \varepsilon_p(\Sigma_\alpha,\Sigma_\beta) = \sum_p \varepsilon_p(\Sigma_\beta,\Sigma_\alpha) = Q_X(\beta,\alpha). \qedhere
+\]
+\end{proof}
+
+\begin{remark}
+Pour des variétés de dimension congrues à $2 \pmod 4$, la forme d'intersection est \emph{antisymétrique}. La symétrie ici est propre à la dimension 4.
+\end{remark}
+
+\begin{proposition}[Bilinéarité de $Q_X$]
+\label{prop:bilinear}
+La forme $Q_X$ est bilinéaire.
+\end{proposition}
+
+\begin{proof}
+\medskip
+\textbf{Linéarité en la première variable.}
+
+Soient $\Sigma, \Sigma'$ des représentants lisses de $\alpha$ et $\alpha'$,
+et $T$ un représentant lisse de $\beta$.
+ 
+\medskip
+On ne peut pas supposer a priori que $\Sigma$ et $\Sigma'$ sont disjoints dans
+$M$.  Cependant, comme une isotopie ambiante induit l'identité en homologie, on
+peut remplacer $\Sigma'$ par un représentant isotope $\widetilde\Sigma'$ qui lui
+est homologue.
+ 
+\begin{lemma}
+Il existe une isotopie ambiante $\phi_t : M \to M$, $t \in [0,1]$, avec
+$\phi_0 = \mathrm{id}$, telle que $\widetilde\Sigma' := \phi_1(\Sigma')$
+vérifie $\widetilde\Sigma' \cap \Sigma = \emptyset$.
+\end{lemma} 
+ 
+On travaille désormais avec $\widetilde\Sigma'$ à la place de $\Sigma'$,
+et on suppose de plus $\Sigma$, $\widetilde\Sigma'$, $T$ deux à deux transverses
+(position générale).
+ 
+\medskip
+Au niveau des chaînes singulières, l'addition en homologie correspond à la
+réunion de cycles.  La réunion disjointe $\Sigma \sqcup \widetilde\Sigma'$ est
+donc un représentant lisse de $\alpha + \alpha'$ :
+\[
+  [\Sigma \sqcup \widetilde\Sigma'] \;=\; [\Sigma] + [\widetilde\Sigma']
+  \;=\; \alpha + \alpha'.
+\]
+ 
+\medskip
+Par définition de la forme d'intersection,
+\[
+  Q(\alpha+\alpha',\,\beta)
+  \;=\; \#\bigl((\Sigma \sqcup \widetilde\Sigma') \pitchfork T\bigr).
+\]
+Comme $\Sigma$ et $\widetilde\Sigma'$ sont disjoints, leurs intersections avec
+$T$ le sont aussi :
+\[
+  (\Sigma \sqcup \widetilde\Sigma') \pitchfork T
+  \;=\; (\Sigma \pitchfork T) \sqcup (\widetilde\Sigma' \pitchfork T).
+\]
+Le signe local $\varepsilon_p = \pm 1$ en chaque point $p$ ne dépend que des
+orientations de la surface et de $T$ en $p$, qui n'ont pas été modifiées.
+L'additivité du nombre algébrique sur les unions disjointes donne alors
+\[
+  Q(\alpha+\alpha',\,\beta)
+  \;=\; \#(\Sigma \pitchfork T) + \#(\widetilde\Sigma' \pitchfork T)
+  \;=\; Q(\alpha,\beta) + Q(\alpha',\beta). \qedhere
+\]
+
+
+\textbf{Homogénéité}
+Soit $\lambda \in \mathbb{Z}$ et $\alpha, \beta \in H_2(M;\mathbb{Z})$.
+Un représentant de $\lambda \alpha$ est $|\lambda|$ copies de $\Sigma_\alpha$,
+avec orientation renversée si $\lambda < 0$. Par additivité du nombre algébrique
+d'intersections sur les réunions disjointes,
+\[
+  Q(\lambda\alpha, \beta)
+  \;=\; \#\bigl((\lambda \cdot \Sigma_\alpha) \pitchfork \Sigma_\beta\bigr)
+  \;=\; \lambda \cdot \#(\Sigma_\alpha \pitchfork \Sigma_\beta)
+  \;=\; \lambda\, Q(\alpha, \beta). \qedhere
+\]
+
+\textbf{Linéarité en la seconde variable.} découle de la symétrie, voir Proposition~\ref{prop:sym}.
+\end{proof}
+
+\begin{definition}[Forme unimodulaire]
+Une forme bilinéaire symétrique $Q : \ZZ^n \times \ZZ^n \to \ZZ$ est dite \textbf{unimodulaire} si la matrice $(Q(e_i,e_j))$ représentant $Q$ dans une base $(e_i)$ de $\ZZ^n$ a déterminant $\pm 1$, i.e., est inversible sur $\ZZ$.
+\end{definition}
+
+\begin{remark}
+L'unimodularité est équivalente au fait que le morphisme adjoint $\varphi_Q : H_2(X;\ZZ) \to \mathrm{Hom}(H_2(X;\ZZ), \ZZ)$ défini par $\varphi_Q(\alpha)(\beta) = Q(\alpha,\beta)$ est un isomorphisme.
+\end{remark}
+
+\begin{theorem}[Unimodularité de $Q_M$]
+\label{thm:unimod}
+Soit $M$ une 4-variété fermée compacte orientée lisse. La forme d'intersection $Q_M$ induit une forme bilinéaire symétrique unimodulaire sur le quotient libre $H_2(M;\mathbb{Z}) / \mathrm{Tor}(H_2(M;\mathbb{Z}))$.
+\end{theorem}
+
+\begin{proof}
+On observe d'abord que $Q_M$ s'annule sur $\mathrm{Tor}(H_2(M;\mathbb{Z}))$ : si $\alpha \in H_2(M;\mathbb{Z})$ vérifie $n\alpha = 0$ pour un certain $n \geq 1$, alors pour tout $\beta$,
+\[
+  n \cdot Q_M(\alpha, \beta) = Q_M(n\alpha, \beta) = 0,
+\]
+et comme $Q_M(\alpha,\beta) \in \mathbb{Z}$, on conclut $Q_M(\alpha,\beta) = 0$. Ainsi $Q_M$ descend bien en une forme bilinéaire sur $H_2(M;\mathbb{Z})_{\mathrm{free}}$, qui est un $\mathbb{Z}$-module libre de type fini.
+
+\medskip
+
+\noindent On veut montrer que
+\[
+  \Phi : H_2(M;\mathbb{Z})_{\mathrm{free}} \longrightarrow \mathrm{Hom}(H_2(M;\mathbb{Z})_{\mathrm{free}},\mathbb{Z}),
+  \qquad \alpha \longmapsto Q_M(\alpha,-)
+\]
+est un isomorphisme. On écrit $\Phi$ comme la composée
+\[
+  \Phi \;:\; H_2(M;\mathbb{Z})_{\mathrm{free}}
+  \xrightarrow{\;\mathrm{PD}\;}
+  H^2(M;\mathbb{Z})
+  \xrightarrow{\;\mathrm{ev}\;}
+  \mathrm{Hom}(H_2(M;\mathbb{Z})_{\mathrm{free}},\mathbb{Z}),
+\]
+où $\mathrm{PD}$ est l'isomorphisme de Poincaré et $\mathrm{ev}$ est l'évaluation $\varphi \mapsto (\beta \mapsto \varphi(\beta))$.
+
+\medskip
+
+\noindent Le théorème des coefficients universels donne la suite exacte
+\[
+  0 \;\longrightarrow\;
+  \mathrm{Ext}^1(H_1(M;\mathbb{Z}),\mathbb{Z})
+  \;\longrightarrow\;
+  H^2(M;\mathbb{Z})
+  \xrightarrow{\;\mathrm{ev}\;}
+  \mathrm{Hom}(H_2(M;\mathbb{Z}),\mathbb{Z})
+  \;\longrightarrow\; 0.
+\]
+Or $\mathrm{Hom}(H_2(M;\mathbb{Z}), \mathbb{Z}) = \mathrm{Hom}(H_2(M;\mathbb{Z})_{\mathrm{free}}, \mathbb{Z})$ car tout homomorphisme vers $\mathbb{Z}$ s'annule sur la torsion. De plus, par la dualité de Poincaré, $H_2(M;\mathbb{Z})_{\mathrm{free}} \cong H^2(M;\mathbb{Z}) / \mathrm{Ext}^1(H_1(M;\mathbb{Z}), \mathbb{Z})$, de sorte que $\mathrm{ev}$ induit un isomorphisme
+\[
+H^2(M;\mathbb{Z}) \;\xrightarrow{\;\sim\;}\; \mathrm{Hom}(H_2(M;\mathbb{Z})_{\mathrm{free}}, \mathbb{Z}).
+\]
+
+\medskip
+
+\noindent Ainsi $\Phi = \mathrm{ev} \circ \mathrm{PD}$ est une composée de deux isomorphismes, donc un isomorphisme, ce qui conclut.
+\end{proof}
+
+%==============================================================================
+\subsection{Exemples}
+%==============================================================================
+
+\begin{exemple}[$S^4$]
+On a $H_2(S^4;\mathbb{Z}) = 0$, donc $Q$ est la forme nulle sur le groupe
+trivial.
+\end{exemple}
+
+\begin{exemple}[$S^2 \times S^2$]
+On a $H_2(S^2 \times S^2;\mathbb{Z}) = \mathbb{Z}^2$, engendré par
+\[
+  \alpha = [S^2 \times \{p\}], \qquad \beta = [\{p\} \times S^2]
+\]
+pour un point $p \in S^2$ quelconque. On munit $S^2 \times S^2$ de
+l'orientation produit, et chaque facteur de son orientation standard.
+
+\medskip
+\noindent\textbf{Calcul de $Q(\alpha,\alpha)$.}
+Pour calculer $Q(\alpha,\alpha)$, on prend deux représentants distincts :
+$\Sigma = S^2 \times \{p\}$ et $\Sigma' = S^2 \times \{q\}$ avec $p \neq q$.
+Ces deux surfaces sont disjointes dans $S^2 \times S^2$, donc
+\[
+  Q(\alpha, \alpha) = \#(\Sigma \pitchfork \Sigma') = 0.
+\]
+De même $Q(\beta,\beta) = 0$.
+
+\medskip
+\noindent\textbf{Calcul de $Q(\alpha,\beta)$.}
+On prend $\Sigma = S^2 \times \{p\}$ et $T = \{p\} \times S^2$. Ces deux
+surfaces se coupent transversalement en l'unique point $(p,p)$. Il reste à
+déterminer le signe $\varepsilon(p,p) \in \{+1,-1\}$.
+
+Par définition, $\varepsilon(p,p) = +1$ si et seulement si la concaténation
+des bases orientées
+\[
+  (T_{(p,p)}\Sigma,\; T_{(p,p)}T)
+  \;=\;
+  (T_p S^2 \times \{0\},\; \{0\} \times T_p S^2)
+\]
+est une base positivement orientée de $T_{(p,p)}(S^2 \times S^2) \cong T_p S^2
+\oplus T_p S^2$. Or l'orientation produit de $S^2 \times S^2$ est précisément
+celle définie par cette décomposition, donc la concaténation est bien une base
+positive. Ainsi $\varepsilon(p,p) = +1$ et
+\[
+  Q(\alpha,\beta) = 1.
+\]
+La matrice de $Q$ dans la base $(\alpha,\beta)$ est donc
+\[
+  Q_{S^2 \times S^2} \;=\; \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.
+\]
+\end{exemple}
+
+\begin{exemple}[$\mathbb{CP}^2$]
+On munit $\mathbb{CP}^2$ de son orientation complexe canonique (celle pour
+laquelle les cartes holomorphes sont directement orientées). On a
+$H_2(\mathbb{CP}^2;\mathbb{Z}) = \mathbb{Z}$, engendré par $h = [\mathbb{CP}^1]$
+la classe d'une droite projective complexe, munie de son orientation complexe.
+
+\medskip
+\noindent\textbf{Calcul de $Q(h,h)$.}
+On prend deux droites projectives distinctes en position générale :
+\[
+  L_1 = \{[z_0 : z_1 : 0]\} \subset \mathbb{CP}^2, \qquad
+  L_2 = \{[z_0 : 0 : z_2]\} \subset \mathbb{CP}^2.
+\]
+Ces deux droites se coupent transversalement en l'unique point $[1:0:0]$. Il
+reste à calculer le signe en ce point.
+
+En coordonnées affines $z_0 = 1$, on paramètre $L_1$ par $(z_1, 0)$ et $L_2$
+par $(0, z_2)$, avec $z_1, z_2 \in \mathbb{C}$. Les espaces tangents réels en
+$[1:0:0]$ sont
+\[
+  T_{[1:0:0]} L_1 = \mathbb{R}\,\partial_{x_1} \oplus \mathbb{R}\,\partial_{y_1},
+  \qquad
+  T_{[1:0:0]} L_2 = \mathbb{R}\,\partial_{x_2} \oplus \mathbb{R}\,\partial_{y_2}
+\]
+où $z_k = x_k + iy_k$. L'orientation complexe de $L_k \cong \mathbb{C}$ est
+$(\partial_{x_k}, \partial_{y_k})$. La concaténation
+\[
+  (\partial_{x_1}, \partial_{y_1}, \partial_{x_2}, \partial_{y_2})
+\]
+est une base de $T_{[1:0:0]}\mathbb{CP}^2 \cong \mathbb{C}^2$. L'orientation
+complexe canonique de $\mathbb{CP}^2$ est précisément celle définie par la base
+$(\partial_{x_1}, \partial_{y_1}, \partial_{x_2}, \partial_{y_2})$, donc le
+signe est $+1$. Ainsi
+\[
+  Q(h,h) = 1.
+\]
+La matrice de $Q$ dans la base $(h)$ est donc
+\[
+  Q_{\mathbb{CP}^2} \;=\; \begin{pmatrix} 1 \end{pmatrix}.
+\]
+\end{exemple}
+
+%==============================================================================
+\subsection{Invariants}
+%==============================================================================
+
+À toute forme bilinéaire symétrique on associe des invariants classiques qui permettent de la classifier. Pour la forme d'intersection $Q_X$ d'une $4$-variété $X$, les trois invariants principaux sont le rang, la signature et la parité.
+
+\subsubsection{Rang}
+
+En choisissant une base de $H_2(X;\mathbb{Z})$, la forme $Q_X$ est représentée par une matrice symétrique à coefficients entiers. Le \emph{rang} de $Q_X$ est le rang de cette matrice, c'est-à-dire le nombre de lignes (ou colonnes) linéairement indépendantes. La dualité de Poincaré garantit que $Q_X$ est non dégénérée, de sorte que son rang coïncide avec $b_2(X)$, le deuxième nombre de Betti de $X$.
+
+\subsubsection{Signature}
+
+En tensorisant par $\mathbb{R}$, on obtient une forme quadratique réelle que l'on peut diagonaliser par le théorème de Sylvester. On note $b_2^+$ (resp.\ $b_2^-$) le nombre de coefficients diagonaux strictement positifs (resp.\ strictement négatifs), de sorte que $b_2^+ + b_2^- = b_2(X)$. La \emph{signature} de $Q_X$ est alors
+\[
+  \sigma(X) = b_2^+ - b_2^-.
+\]
+On dit que $Q_X$ est \emph{définie positive} si $b_2^- = 0$, \emph{définie négative} si $b_2^+ = 0$, et \emph{indéfinie} sinon.
+
+La signature se comporte bien vis-à-vis des opérations naturelles sur les variétés. D'une part, renverser l'orientation de $X$ change le signe de $Q_X$, donc
+\[
+  \sigma(-X) = -\sigma(X).
+\]
+D'autre part, la forme d'intersection d'une somme connexe est la somme directe des formes d'intersection des deux facteurs, d'où
+\[
+  \sigma(X_1 \mathbin{\#} X_2) = \sigma(X_1) + \sigma(X_2).
+\]
+
+Enfin, la signature est une obstruction au cobordisme orienté :
+
+\begin{lemma}
+Si $M^4$ est le bord d'une $5$-variété orientée compacte $W^5$, alors $\sigma(Q_M) = 0$.
+\end{lemma}
+
+La réciproque de ce lemme est fausse en général : la nullité de la signature ne suffit pas à garantir que $M^4$ borde une $5$-variété, d'autres obstructions pouvant intervenir. En revanche, dans le cadre lisse, Rokhlin a démontré la réciproque suivante, bien plus difficile.
+
+\begin{theorem}[Rokhlin]
+Si $M^4$ est une $4$-variété lisse orientée avec $\sigma(Q_M) = 0$, alors il existe une $5$-variété lisse orientée $W^5$ telle que $\partial W = M$.
+\end{theorem}
+
+\subsubsection{Parité}
+
+La forme $Q_X$ est dite \emph{paire} si $Q_X(\alpha,\alpha)$ est pair pour tout $\alpha \in H_2(X;\mathbb{Z})$, et \emph{impaire} sinon. Autrement dit, on regarde si toutes les auto-intersections des classes de $H_2(X;\mathbb{Z})$ sont paires.
+\newpage
+
+%========================================================================
+

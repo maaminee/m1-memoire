@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\newcommand{\Hom}{\mathrm{H}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\begin{document}
+
+\section*{Cas \(k = 2\) : homologie de degr\'e 2}
+
+Soit \(M_1^4\) et \(M_2^4\) deux vari\'et\'es connexes, orientables, de dimension 4. On consid\`ere leur somme connexe \(M = M_1 \# M_2\).
+
+On pose \(U = M_1 \setminus \{\text{int\'erieur d'une petite boule}\}\) et \(V = M_2 \setminus \{\text{int\'erieur d'une petite boule}\}\), l\'eg\`erement agrandis pour former un recouvrement de \(M\). L'intersection \(U \cap V\) est hom\'eomorphe \`a \(\mathbb{S}^3 \times (-\epsilon, \epsilon)\), donc homotopiquement \'equivalente \`a \(\mathbb{S}^3\).
+
+La suite exacte de Mayer-Vietoris en homologie r\'eduite donne :
+\[
+\cdots \to \Hom_2(\mathbb{S}^3) \to \Hom_2(U) \oplus \Hom_2(V) \to \Hom_2(M) \to \Hom_1(\mathbb{S}^3) \to \cdots
+\]
+
+On conna\^it l'homologie de la sph\`ere \(\mathbb{S}^3\) :
+\[
+\Hom_1(\mathbb{S}^3) = 0 \quad \text{et} \quad \Hom_2(\mathbb{S}^3) = 0.
+\]
+
+De plus, \(U\) se r\'etracte par d\'eformation sur \(M_1\) priv\'e d'un point, donc \(\Hom_2(U) \cong \Hom_2(M_1)\). De m\^eme, \(\Hom_2(V) \cong \Hom_2(M_2)\). (On pourrait aussi utiliser le théorème d'excision)
+
+La suite exacte devient alors :
+\[
+0 \to \Hom_2(M_1) \oplus \Hom_2(M_2) \to \Hom_2(M) \to 0.
+\]
+
+Cette suite \'etant exacte, la fl\`eche du milieu est un isomorphisme. On obtient donc :
+\[
+\boxed{\Hom_2(M_1 \# M_2) \cong \Hom_2(M_1) \oplus \Hom_2(M_2)}.
+\]
+
+\end{document}

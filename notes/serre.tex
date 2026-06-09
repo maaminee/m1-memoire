@@ -1,0 +1,280 @@
+% ============================================================
+%  À inclure via \input{formes_quadratiques_serre}
+%  dans ta section préliminaire
+% ============================================================
+
+\subsection{Formes bilinéaires symétriques entières à discriminant $\pm 1$}
+
+Cette sous-section développe les outils algébriques nécessaires à l'étude des formes
+d'intersection des variétés compactes orientées de dimension~$4$. Les résultats
+présentés suivent l'exposé de Serre~\cite{Serre1962} au Séminaire Henri Cartan.
+
+% ------------------------------------------------------------
+\subsubsection{Définitions}
+% ------------------------------------------------------------
+
+\begin{definition}
+Soit $n \geq 0$ un entier. On appelle \emph{forme bilinéaire symétrique entière
+unimodulaire de rang $n$} la donnée d'un $\ZZ$-module libre $E$ de rang $n$,
+muni d'une forme bilinéaire symétrique
+\[
+  \varphi : E \times E \longrightarrow \ZZ, \qquad (x,y) \longmapsto x \cdot y,
+\]
+telle que l'application linéaire naturelle $E \to E^* := \mathrm{Hom}_\ZZ(E,\ZZ)$
+induite par $\varphi$ soit un isomorphisme.
+\end{definition}
+
+\begin{remark}
+Si $(e_i)_{1 \leq i \leq n}$ est une base de $E$ et si l'on pose
+$a_{ij} = e_i \cdot e_j$, la condition d'unimodularité est équivalente à
+$\det(a_{ij}) = \pm 1$.
+Changer de base remplace la matrice $A = (a_{ij})$ par ${}^t\!BAB$ avec
+$B \in \mathrm{GL}_n(\ZZ)$ ; deux matrices ainsi reliées définissent des formes
+dites \emph{équivalentes}.
+\end{remark}
+
+On note $\mathcal{S}_n$ la catégorie de ces objets (avec les isomorphismes de
+$\ZZ$-modules préservant la forme), et $\mathcal{S} = \bigcup_{n \geq 0} \mathcal{S}_n$.
+
+\medskip
+
+
+% ------------------------------------------------------------
+\subsubsection{Invariants}
+% ------------------------------------------------------------
+
+Soit $E \in \mathcal{S}_n$. On lui associe plusieurs invariants.
+
+\paragraph{Rang.}
+L'entier $n$ est appelé le \emph{rang} de $E$, noté $r(E)$.
+
+\paragraph{Signature et indice.}
+En étendant les scalaires à $\RR$, on obtient un espace vectoriel réel
+$V = E \otimes_\ZZ \RR$ muni d'une forme quadratique réelle non dégénérée. Par le
+théorème de Sylvester, il existe des entiers $s, t \geq 0$ tels que, dans une base
+convenable de $V$, la forme quadratique s'écrive
+\[
+  f(x) = \sum_{i=1}^{s} x_i^2 - \sum_{j=1}^{t} y_j^2.
+\]
+Le couple $(s, t)$, appelé \emph{signature} de $E$, ne dépend pas de la base choisie,
+et l'on a $s + t = n$.
+
+\begin{definition}
+L'\emph{indice} de $E$ est l'entier $\tau(E) = s - t$. On vérifie immédiatement que
+\[
+  -r(E) \leq \tau(E) \leq r(E) \qquad \text{et} \qquad \tau(E) \equiv r(E) \pmod{2}.
+\]
+On dit que $E$ est \emph{défini} si $|\tau(E)| = r(E)$, et \emph{indéfini} sinon.
+\end{definition}
+
+\paragraph{Type : pair ou impair.}
+
+\begin{definition}
+On dit que $E \in \mathcal{S}$ est \emph{pair} (ou de \emph{type~II}) si la forme
+quadratique $x \mapsto x \cdot x$ ne prend que des valeurs paires, ce qui revient à
+dire que tous les termes diagonaux de la matrice $(a_{ij})$ sont pairs.
+Dans le cas contraire, $E$ est dit \emph{impair} (ou de \emph{type~I}).
+\end{definition}
+
+\begin{remark}
+La somme directe $E \oplus E'$ est de type~II si et seulement si $E$ et $E'$ le sont
+tous les deux.
+\end{remark}
+
+\paragraph{L'invariant $\sigma(E)$.}
+Soit $\bar{E} = E/2E$, vu comme espace vectoriel sur $\mathbb{F}_2 = \ZZ/2\ZZ$.
+La forme bilinéaire de $E$ passe au quotient en une forme encore symétrique et de
+discriminant $1$ sur $\bar{E}$. La forme quadratique $\bar{x} \mapsto \overline{x \cdot x}$
+est un élément du dual de $\bar{E}$, et comme la forme bilinéaire réalise un
+isomorphisme $\bar{E} \simeq \bar{E}^*$, il existe un unique $\bar{u} \in \bar{E}$ tel que
+\[
+  \bar{u} \cdot \bar{x} = \overline{x \cdot x} \qquad \text{pour tout } \bar{x} \in \bar{E}.
+\]
+En remontant à $E$, il existe $u \in E$, défini modulo $2E$, tel que
+$u \cdot x \equiv x \cdot x \pmod{2}$ pour tout $x \in E$.
+On vérifie que si l'on remplace $u$ par $u + 2x$, alors
+\[
+  (u + 2x) \cdot (u + 2x) = u \cdot u + 4(u \cdot x + x \cdot x) \equiv u \cdot u \pmod{8},
+\]
+de sorte que l'image de $u \cdot u$ dans $\ZZ/8\ZZ$ est un invariant bien défini.
+
+\begin{definition}
+$\sigma(E) \in \ZZ/8\ZZ$ défini comme
+l'image de $u \cdot u$ dans $\ZZ/8\ZZ$. Si $E$ est de type~II, on peut prendre
+$u = 0$, et donc $\sigma(E) = 0$.
+\end{definition}
+
+\begin{remark}
+Dans les applications topologiques, $\bar{u}$ s'interprète comme la \textbf{classe de Wu} de la
+variété, et la condition de type~II correspond à $w_2 = 0$, c'est-à-dire au fait que
+la variété est spinnable.
+\end{remark}
+
+Les invariants sont additifs pour la somme directe : si $E = E_1 \oplus E_2$,
+\[
+  r(E) = r(E_1) + r(E_2), \quad \tau(E) = \tau(E_1) + \tau(E_2),
+  \quad \sigma(E) = \sigma(E_1) + \sigma(E_2).
+\]
+
+% ------------------------------------------------------------
+\subsubsection{Exemples fondamentaux}
+% ------------------------------------------------------------
+
+\begin{exemple}[Les modules $I_+$ et $I_-$]
+On note $I_+$ (resp. $I_-$) le $\ZZ$-module $\ZZ$ muni de la forme
+$(x,y) \mapsto xy$ (resp. $(x,y) \mapsto -xy$). Pour des entiers $s, t \geq 0$, le
+module $sI_+ \oplus tI_-$ a pour forme quadratique $\sum_{i=1}^s x_i^2 - \sum_{j=1}^t y_j^2$
+et pour invariants :
+\[
+  r = s+t, \qquad \tau = s-t, \qquad \sigma \equiv s-t \pmod{8}.
+\]
+Sauf dans le cas trivial $(s,t) = (0,0)$, ce module est de type~I.
+\end{exemple}
+
+\begin{exemple}[Le module hyperbolique $U$]
+On note $U \in \mathcal{S}_2$ le module défini par la matrice
+$\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$.
+La forme quadratique associée est $2x_1 x_2$, donc tous les termes diagonaux sont
+nuls : $U$ est de type~II. Ses invariants sont :
+\[
+  r(U) = 2, \qquad \tau(U) = 0,  \qquad \sigma(U) = 0.
+\]
+\end{exemple}
+
+\begin{exemple}[Les modules $V_{8k}$ et le réseau $E_8$]
+\label{ex:V8k}
+Soit $k \geq 1$ un entier et $n = 8k$. On considère $V = \mathbb{Q}^n$ muni de la
+forme bilinéaire standard $\sum x_i y_i$. Posons $E_0 = \ZZ^n$ et
+\[
+  E_1 = \left\{ x \in E_0 \;\middle|\; \textstyle\sum_{i=1}^n x_i \equiv 0 \pmod{2} \right\}.
+\]
+On définit $V_{8k}$ comme le sous-$\ZZ$-module de $V$ engendré par $E_1$ et par le
+vecteur $e = \bigl(\tfrac{1}{2}, \ldots, \tfrac{1}{2}\bigr)$. Un vecteur
+$x = (x_i) \in V$ appartient à $V_{8k}$ si et seulement si
+\[
+  2x_i \in \ZZ, \qquad x_i - x_j \in \ZZ, \qquad \textstyle\sum_{i=1}^n x_i \in 2\ZZ.
+\]
+On vérifie que la forme bilinéaire prend des valeurs entières sur $V_{8k}$ et que $V_{8k}$ est de type~II. Ses invariants sont :
+\[
+  r(V_{8k}) = 8k, \qquad \tau(V_{8k}) = 8k, \qquad \sigma(V_{8k}) = 0, \qquad d(V_{8k}) = 1.
+\]
+Le cas $k=1$ est particulièrement important : $V_8$ est le \emph{réseau $E_8$}, défini
+positif, de rang~$8$, unimodulaire et de type~II. Il contient exactement $240$ vecteurs
+$x$ tels que $x \cdot x = 2$ :
+\[
+  \pm e_i \pm e_j \; (i \neq j), \qquad
+  \tfrac{1}{2}\textstyle\sum_{i=1}^8 \varepsilon_i e_i \;\text{ avec }\;
+  \varepsilon_i = \pm 1,\; \textstyle\prod_{i=1}^8 \varepsilon_i = 1.
+\]
+la matrice de la forme bilinéaire est la matrice de Cartan de $E_8$ :
+\[
+  A_{E_8} = \begin{pmatrix}
+    2  & 1  & 0  & 0  & 0  & 0  & 0  & 0 \\
+    1  & 2  & 1  & 0  & -1 & 0  & 0  & 0 \\
+    0  & 1  & 2  & 1  & 0  & 0  & 0  & 0 \\
+    0  & 0  & 1  & 2  & 1  & 0  & 0  & 0 \\
+    0  & -1 & 0  & 1  & 2  & 1  & 0  & 0 \\
+    0  & 0  & 0  & 0  & 1  & 2  & 1  & 0 \\
+    0  & 0  & 0  & 0  & 0  & 1  & 2  & 1 \\
+    0  & 0  & 0  & 0  & 0  & 0  & 1  & 2
+  \end{pmatrix}.
+\]
+On vérifie directement que $\det(A_{E_8}) = 1$ et que tous les termes diagonaux
+sont pairs, confirmant l'unimodularité et le type~II.
+\end{exemple}
+
+% ------------------------------------------------------------
+\subsubsection{La congruence modulo $8$}
+% ------------------------------------------------------------
+
+\begin{theorem}[Serre {\cite{Serre1962}}]
+\label{thm:mod8}
+Pour tout $E \in \mathcal{S}$, on a $\sigma(E) \equiv \tau(E) \pmod{8}$.
+\end{theorem}
+
+\begin{corollary}
+\label{cor:typeII_mod8}
+Si $E \in \mathcal{S}$ est de type~II, alors $\tau(E) \equiv 0 \pmod{8}$.
+\end{corollary}
+
+\begin{corollary}
+Si $E \in \mathcal{S}$ est défini et de type~II, alors $r(E) \equiv 0 \pmod{8}$.
+\end{corollary}
+
+\begin{remark}
+Ces corollaires expliquent pourquoi le premier exemple non trivial de forme unimodulaire
+définie positive de type~II est de rang~$8$ : c'est le réseau $E_8$.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsubsection{Théorèmes de classification}
+% ------------------------------------------------------------
+
+\paragraph{Cas indéfini, type I.}
+
+\begin{theorem}[Serre {\cite{Serre1962}}]
+\label{thm:indefI}
+Si $E \in \mathcal{S}$ est indéfini et de type~I, alors
+\[
+  E \simeq sI_+ \oplus tI_-,
+\]
+où $s = \frac{r(E)+\tau(E)}{2}$ et $t = \frac{r(E)-\tau(E)}{2}$.
+En particulier, $E$ est entièrement déterminé à isomorphisme près par son rang et son
+indice.
+\end{theorem}
+
+\paragraph{Cas indéfini, type II.}
+
+\begin{theorem}[Serre {\cite{Serre1962}}]
+\label{thm:indefII}
+Si $E \in \mathcal{S}$ est indéfini, de type~II, et si $\tau(E) \geq 0$, alors
+\[
+  E \simeq pU \oplus qV_8,
+\]
+où $q = \frac{\tau(E)}{8}$ et $p = \frac{r(E) - \tau(E)}{2}$.
+En particulier, $E$ est entièrement déterminé à isomorphisme près par son rang et son
+indice.
+\end{theorem}
+
+\begin{remark}
+Lorsque $\tau(E) \leq 0$, on obtient un résultat analogue en remplaçant $V_8$ par
+$-V_8$.
+\end{remark}
+
+Ces deux théorèmes se résument en un énoncé unifié :
+
+\begin{theorem}[Classification des formes indéfinies]
+\label{thm:class_indef}
+Soient $E, E' \in \mathcal{S}$ deux formes indéfinies ayant même rang, même indice et
+même type. Alors $E \simeq E'$.
+\end{theorem}
+
+\begin{corollary}
+Soient $E, E' \in \mathcal{S}$ de même rang et de même indice. Alors
+\[
+  E \oplus I_+ \simeq E' \oplus I_+ \qquad \text{ou} \qquad
+  E \oplus I_- \simeq E' \oplus I_-.
+\]
+\end{corollary}
+
+\paragraph{Cas défini.}
+Dans le cas défini, il n'existe pas de théorème de structure aussi simple. On peut
+néanmoins affirmer que pour chaque $n$, la catégorie $\mathcal{S}_n$ ne contient
+qu'un \emph{nombre fini} de classes d'isomorphisme. La classification explicite n'a
+été menée à bien que pour les petites valeurs de $n$ (Kneser~\cite{Kneser1957},
+pour $n \leq 16$). Pour le type~II, le Corollaire~\ref{cor:typeII_mod8} impose
+$r \equiv 0 \pmod 8$, et la situation est particulièrement simple pour les petits
+rangs :
+
+\begin{proposition}
+\label{prop:defII_petits_rangs}
+\begin{itemize}[nosep]
+  \item Pour $r = 8$ : le seul module défini positif de type~II est $V_8$.
+  \item Pour $r = 16$ : il existe exactement deux classes, $V_{16}$ et
+  $V_8 \oplus V_8$, qui ne sont \emph{pas} isomorphes entre elles.
+\end{itemize}
+\end{proposition}
+
+Ce phénomène illustre que deux formes unimodulaires définies de même rang, même
+indice et même type peuvent ne pas être isomorphes : la classification des formes
+définies est un problème sensiblement plus difficile que celle des formes indéfinies.

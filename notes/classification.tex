@@ -1,0 +1,50 @@
+\section{Classification des formes d'intersection}
+%========================================================================
+
+\subsection{Formes unimodulaires indéfinies}
+
+On rappelle que la forme d'intersection $Q_X$ d'une $4$-variété compacte orientée sans bord est unimodulaire, c'est-à-dire que sa matrice dans n'importe quelle base de $H_2(X;\mathbb{Z})$ est de déterminant $\pm 1$. La question naturelle est alors~: quelles formes unimodulaires peuvent apparaître, et comment les distinguer ? Dans le cas indéfini, la réponse est donnée par le théorème de Serre, dont l'énoncé est remarquablement simple.
+
+\begin{theorem}[Serre]
+  Deux formes bilinéaires symétriques unimodulaires indéfinies sur $\mathbb{Z}$ sont isomorphes si et seulement si elles ont même rang, même signature et même parité.
+\end{theorem}
+
+Autrement dit, les trois invariants introduits à la section précédente suffisent à classifier entièrement les formes unimodulaires indéfinies. En particulier, il n'y a qu'un nombre fini de telles formes pour chaque valeur du rang.
+
+On peut rendre cette classification encore plus explicite. Dans le cas impair, les seules formes possibles sont les sommes directes de copies de $\langle 1 \rangle$ et $\langle -1 \rangle$. Dans le cas pair, interviennent deux formes de base~: la forme hyperbolique
+\[
+  H = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+\]
+de rang $2$ et de signature nulle, et la forme $E_8$, définie ci-dessous, qui est de rang $8$ et de signature $\pm 8$.
+\[
+  E_8 =
+  \begin{pmatrix}
+     2 & -1 &  0 &  0 &  0 &  0 &  0 &  0 \\
+    -1 &  2 & -1 &  0 &  0 &  0 &  0 &  0 \\
+     0 & -1 &  2 & -1 &  0 &  0 &  0 & -1 \\
+     0 &  0 & -1 &  2 & -1 &  0 &  0 &  0 \\
+     0 &  0 &  0 & -1 &  2 & -1 &  0 &  0 \\
+     0 &  0 &  0 &  0 & -1 &  2 & -1 &  0 \\
+     0 &  0 &  0 &  0 &  0 & -1 &  2 &  0 \\
+     0 &  0 & -1 &  0 &  0 &  0 &  0 &  2 \\
+  \end{pmatrix}.
+\]
+
+\begin{corollary}
+  Toute forme bilinéaire symétrique unimodulaire indéfinie sur $\mathbb{Z}$ est isomorphe à l'une des formes suivantes~:
+  \[
+    m\langle 1 \rangle \oplus n\langle -1 \rangle, \qquad m,n \geq 1 \quad \text{(cas impair)}
+  \]
+  \[
+    kE_8 \oplus \ell H, \qquad k \in \mathbb{Z},\, \ell \geq 1 \quad \text{(cas pair)}
+  \]
+  où dans le second cas, $k > 0$ correspond à des copies de $E_8$ et $k < 0$ à des copies de $-E_8$.
+\end{corollary}
+
+En particulier, la forme d'intersection d'une $4$-variété compacte orientée sans bord dont la forme est indéfinie est nécessairement de l'une de ces deux formes.
+
+\subsection{Le cas défini : une classification impossible}
+
+Contrairement au cas indéfini, la classification des formes unimodulaires définies positives est un problème ouvert en général, et ce dès des rangs relativement petits. En rangs $1$ à $7$, la seule forme unimodulaire définie positive est $\langle 1 \rangle^{\oplus r}$, ce qui reste très simple. Mais en rang $8$ apparaît pour la première fois la forme $E_8$, et à partir de là le nombre de classes d'isomorphisme croît de façon vertigineuse : en rang $16$ il y en a déjà $2$, en rang $24$ plus de $10^9$, et au-delà toute classification exhaustive est hors de portée.
+
+Cette situation contraste fortement avec le cas indéfini, et rend la question de savoir quelles formes sont effectivement réalisées comme forme d'intersection d'une $4$-variété d'autant plus délicate. C'est précisément là qu'interviennent les théorèmes de Freedman et de Donaldson, qui apportent des réponses partielles mais profondes.

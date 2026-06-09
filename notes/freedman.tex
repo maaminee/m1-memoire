@@ -1,0 +1,56 @@
+% =========================================================
+%  Section : Le théorème de Freedman
+% =========================================================
+
+\subsection{Freedman(1982)}
+
+
+Le théorème de Freedman, publié en 1982, est le pendant topologique du théorème de Donaldson.
+Là où Donaldson impose des contraintes drastiques sur les formes d'intersection réalisables
+par des variétés \emph{lisses}, Freedman montre que dans la catégorie \emph{topologique} ces
+contraintes disparaissent presque entièrement~: toute forme bilinéaire symétrique entière
+unimodulaire est réalisable.
+
+\begin{theorem}[Freedman, 1982]\label{thm:freedman}
+  Soit $Q$ une forme bilinéaire symétrique entière unimodulaire. Alors il existe une
+  $4$-variété topologique compacte orientée fermée simplement connexe $M$ dont la forme
+  d'intersection est isomorphe à $Q$. De plus~:
+  \begin{enumerate}
+    \item si $Q$ est impaire, $M$ est unique à homéomorphisme près~;
+    \item si $Q$ est paire, il existe exactement deux telles variétés à homéomorphisme près,
+          qui se distinguent par leur invariant de Kirby-Siebenmann
+          $\mathrm{ks}(M) \in \mathbb{Z}/2\mathbb{Z}$.
+  \end{enumerate}
+\end{theorem}
+
+C'est un résultat de classification complète~: les $4$-variétés topologiques compactes
+orientées fermées simplement connexes sont entièrement déterminées, à homéomorphisme près,
+par leur forme d'intersection et leur invariant de Kirby-Siebenmann.
+
+
+\subsubsection*{Conséquences et portée}
+
+Le théorème de Freedman a des conséquences immédiates sur la classification des $4$-variétés
+topologiques surtout, combiné au théorème de Donaldson, il produit la conséquence suivante qui est au
+c\oe ur de ce mémoire~:
+
+\begin{corollary}\label{cor:freedman_donaldson}
+  Il existe des $4$-variétés topologiques compactes orientées fermées simplement connexes qui
+  n'admettent aucune structure différentielle.
+\end{corollary}
+
+\begin{proof}
+  Par le théorème de Freedman, il existe une $4$-variété topologique $M_{E_8}$ de forme
+  d'intersection $Q_{E_8}$. Par le théorème de Donaldson, toute $4$-variété lisse simplement
+  connexe à forme définie positive a une forme diagonalisable sur $\mathbb{Z}$. Comme
+  $Q_{E_8}$ est définie positive et non diagonalisable (voir Section~\ref{prop:e8_non_diag}),
+  $M_{E_8}$ n'admet aucune structure lisse.
+\end{proof}
+
+\begin{remark}
+  La portée du théorème de Freedman va bien au-delà de ce corollaire. Il a notamment permis
+  de démontrer la conjecture de Poincaré topologique en dimension $4$~: toute $4$-variété
+  topologique simplement connexe ayant le type d'homotopie de $S^4$ est homéomorphe à $S^4$.
+  C'est pour ce résultat, ainsi que pour le théorème de classification, que Freedman a reçu
+  la médaille Fields en 1986.
+\end{remark}

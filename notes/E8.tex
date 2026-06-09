@@ -1,0 +1,133 @@
+% =========================================================
+%  Section : La forme quadratique E_8
+% =========================================================
+
+\section{La forme quadratique \texorpdfstring{$E_8$}{E8} : un exemple fondamental}
+
+\subsection{Définition et premières propriétés}
+
+Parmi les formes bilinéaires symétriques entières unimodulaires, la forme $E_8$ occupe une
+place centrale. Elle est définie sur $\mathbb{Z}^8$ par la matrice
+\[
+  E_8 =
+  \begin{pmatrix}
+     2 & -1 &  0 &  0 &  0 &  0 &  0 &  0 \\
+    -1 &  2 & -1 &  0 &  0 &  0 &  0 &  0 \\
+     0 & -1 &  2 & -1 &  0 &  0 &  0 & -1 \\
+     0 &  0 & -1 &  2 & -1 &  0 &  0 &  0 \\
+     0 &  0 &  0 & -1 &  2 & -1 &  0 &  0 \\
+     0 &  0 &  0 &  0 & -1 &  2 & -1 &  0 \\
+     0 &  0 &  0 &  0 &  0 & -1 &  2 &  0 \\
+     0 &  0 & -1 &  0 &  0 &  0 &  0 &  2 \\
+  \end{pmatrix}.
+\]
+
+\begin{proposition}\label{prop:e8_proprietes}
+  La forme $Q_{E_8}$ satisfait les propriétés suivantes~:
+  \begin{enumerate}
+    \item \textbf{Définie positive.} Pour tout $v \in \mathbb{Z}^8 \setminus \{0\}$,
+          $Q_{E_8}(v,v) > 0$. La signature est $(8,0)$.
+    \item \textbf{Unimodulaire.} $\det E_8 = 1$.
+    \item \textbf{Paire.} Pour tout $v \in \mathbb{Z}^8$, $Q_{E_8}(v,v) \equiv 0 \pmod{2}$.
+    \item \textbf{Rang minimal.} $E_8$ est l'unique forme définie positive, paire et
+          unimodulaire de rang minimal~; ce rang vaut $8$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  \textit{(i)} Le critère de Sylvester s'applique~: les mineurs principaux successifs de
+  $E_8$ valent $2, 3, 4, 5, 6, 4, 2, 3$, tous strictement positifs.
+
+  \textit{(ii)} Un développement de Laplace exploitant la structure tridiagonale par blocs
+  donne $\det A_{E_8} = 1$.
+
+  \textit{(iii)} Pour tout $v = (v_1, \ldots, v_8) \in \mathbb{Z}^8$,
+  \[
+    Q_{E_8}(v,v) = 2\sum_{i=1}^8 v_i^2
+    - 2\bigl(v_1 v_2 + v_2 v_3 + v_3 v_4 + v_4 v_5 + v_5 v_6 + v_6 v_7 + v_3 v_8\bigr),
+  \]
+  qui est bien pair pour tout $v \in \mathbb{Z}^8$.
+
+  \textit{(iv)} \textit{L'unicité nécessite un arsenal plus développé.}
+\end{proof}
+
+% ---------------------------------------------------------
+\subsection{Non-diagonalisabilité sur \texorpdfstring{$\mathbb{Z}$}{Z}}
+
+\begin{proposition}\label{prop:e8_non_diag}
+  La forme $Q_{E_8}$ n'est pas isomorphe, sur $\mathbb{Z}$, à une somme directe de formes
+  de rang $1$.
+\end{proposition}
+
+\begin{proof}
+  Comme $Q_{E_8}$ est unimodulaire et définie positive, une diagonalisation éventuelle serait
+  nécessairement de la forme $\langle 1 \rangle^{\oplus 8}$. Or $\langle 1 \rangle^{\oplus 8}$
+  est impaire — chaque vecteur de base $e_i$ vérifie $Q(e_i, e_i) = 1$ qui est impair —
+  tandis que $Q_{E_8}$ est paire. Deux formes de parités différentes ne peuvent être
+  isomorphes.
+\end{proof}
+
+\begin{remark}
+  Sur $\mathbb{Q}$, en revanche, toute forme définie positive est diagonalisable, et l'on a
+  $Q_{E_8} \otimes \mathbb{Q} \cong \langle 1 \rangle^{\oplus 8}$. La non-diagonalisabilité
+  est donc un phénomène proprement arithmétique, qui ne se voit pas au niveau rationnel.
+\end{remark}
+
+% ---------------------------------------------------------
+\subsection{Réalisation comme forme d'intersection}
+
+Rappelons que la forme d'intersection d'une $4$-variété compacte orientée fermée simplement
+connexe est unimodulaire, et paire si et seulement si la variété est spin. La forme $E_8$
+vérifiant ces deux conditions, on peut se demander si elle est réalisable géométriquement.
+
+\medskip
+
+La réponse est positive dans la catégorie topologique~: par le théorème de Freedman, il existe
+une $4$-variété topologique compacte fermée orientée simplement connexe $M_{E_8}$, unique à
+homéomorphisme près, dont la forme d'intersection est $Q_{E_8}$.
+
+\medskip
+
+En revanche, la forme $E_8$ ne peut pas être réalisée par une variété lisse. C'est une
+conséquence directe du théorème de Donaldson~: toute $4$-variété lisse compacte fermée
+simplement connexe à forme d'intersection définie positive a une forme diagonalisable sur
+$\mathbb{Z}$. Or $Q_{E_8}$ est définie positive et non diagonalisable sur $\mathbb{Z}$
+(Proposition~\ref{prop:e8_non_diag}), d'où~:
+
+\begin{corollary}\label{cor:e8_non_lissable}
+  La variété $M_{E_8}$ n'admet aucune structure différentielle.
+\end{corollary}
+
+On notera que le théorème de Rokhlin fournit une obstruction antérieure mais partielle~: comme
+$\sigma(E_8) = 8 \not\equiv 0 \pmod{16}$, toute $4$-variété lisse \emph{spin} de forme
+d'intersection $Q_{E_8}$ est exclue. Le théorème de Donaldson lève l'hypothèse spin et donne
+une obstruction valable sans restriction.
+
+\medskip
+
+On résume les propriétés de $E_8$ et les obstructions qu'elles engendrent~:
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{lcc}
+    \hline
+    Propriété de $Q_{E_8}$ & Valeur & Conséquence \\
+    \hline
+    Rang                            & $8$  & --- \\
+    Signature $\sigma$              & $8$  & $8 \not\equiv 0 \pmod{16}$~: Rokhlin (cas spin) \\
+    Unimodulaire                    & oui  & nécessaire pour bord vide \\
+    Paire                           & oui  & exclut $\langle 1\rangle^{\oplus 8}$ par parité \\
+    Définie positive                & oui  & Donaldson $\Rightarrow$ diagonalisable ou non lisse \\
+    Diagonalisable sur $\mathbb{Z}$ & non  & incompatible avec Donaldson \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\begin{remark}
+  Ce phénomène est propre à la dimension $4$. En dimension $\geq 5$, un théorème dû à Smale garantit que toute variété topologique simplement connexe admet une
+  structure lisse. En dimension $\leq 3$, le théorème de Moise assure que les catégories
+  topologique et lisse coïncident. La dimension $4$ est précisément celle où la forme
+  d'intersection est un invariant complet dans la catégorie topologique (Freedman) mais impose
+  des contraintes drastiques dans la catégorie lisse (Donaldson), et $E_8$ est le témoin
+  algébrique le plus économique de cet écart.
+\end{remark}

@@ -1,0 +1,53 @@
+% =========================================================
+%  Section : Le théorème de Donaldson
+% =========================================================
+
+\subsection{Donaldson(1983)}
+
+Le théorème de Donaldson, publié en 1983, est une obstruction à la lissabilité d'une
+$4$-variété topologique qui s'applique sans aucune hypothèse de structure spin. Il concerne
+les formes d'intersection définies positives et impose une contrainte de nature
+arithmétique~: toute forme définie positive réalisable par une variété lisse doit être
+diagonalisable sur $\mathbb{Z}$.
+
+\begin{theorem}[Donaldson, 1983]\label{thm:donaldson}
+  Soit $M$ une $4$-variété lisse compacte orientée fermée simplement connexe. Si la forme
+  d'intersection $Q_M$ est définie positive, alors $Q_M$ est isomorphe à
+  $\langle 1 \rangle^{\oplus n}$ sur $\mathbb{Z}$, où $n = b_2(M)$.
+\end{theorem}
+
+Autrement dit, dans la base appropriée, la matrice de $Q_M$ est la matrice identité. Toute
+forme définie positive qui n'est pas diagonalisable sur $\mathbb{Z}$ est donc inaccessible
+dans la catégorie lisse, quelle que soit la structure spin de la variété.
+
+\medskip
+
+Ce résultat contraste fortement avec la situation dans la catégorie topologique~: le théorème
+de Freedman, présenté dans la section suivante, garantit que toute forme unimodulaire est
+réalisable par une $4$-variété topologique. Le théorème de Donaldson révèle ainsi un écart
+brutal entre les deux catégories, qui est un phénomène propre à la dimension $4$.
+
+\subsubsection*{Conséquences}
+
+Le théorème de Donaldson classe entièrement les formes définies positives réalisables par des
+variétés lisses~:
+
+\begin{corollary}\label{cor:donaldson_classification}
+  Une forme bilinéaire symétrique entière définie positive est la forme d'intersection d'une
+  $4$-variété lisse compacte orientée fermée simplement connexe si et seulement si elle est
+  isomorphe à $\langle 1 \rangle^{\oplus n}$ pour un certain $n \geq 0$.
+\end{corollary}
+
+Combiné au théorème de Freedman, ce résultat produit une famille d'exemples de variétés
+topologiques sans structure lisse~: toute forme définie positive unimodulaire non
+diagonalisable sur $\mathbb{Z}$ est réalisable topologiquement mais pas lisément. L'exemple
+le plus économique est la forme $E_8$, à laquelle la section suivante est consacrée.
+
+\medskip
+
+On note enfin que le théorème de Donaldson englobe le théorème de Rokhlin dans le cas défini
+positif~: si $Q_M$ est définie positive et lisse, alors $Q_M \cong \langle 1 \rangle^{\oplus
+n}$, qui est une forme impaire. En particulier $M$ n'est pas spin, et Rokhlin ne
+s'applique pas. Les deux théorèmes sont donc complémentaires plutôt que redondants~: Rokhlin
+contraint les formes paires via la divisibilité de la signature, Donaldson exclut toutes les
+formes définies positives non diagonales indépendamment de la parité.

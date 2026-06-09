@@ -1,0 +1,60 @@
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\section*{Le problème de la classification en mathématiques}
+
+La classification des objets mathématiques constitue l'un des thèmes directeurs de la discipline. Depuis l'Antiquité, où l'on classait les polyèdres réguliers, jusqu'aux programmes de classification des groupes simples finis ou des variétés algébriques, cette quête répond à un impératif fondamental : dégager des invariants qui permettent de distinguer les objets, et comprendre l'espace des paramètres qui les décrit.
+
+En géométrie complexe, le XIX\ieme siècle a apporté une contribution majeure avec la classification des surfaces de Riemann compactes. Le théorème d'uniformisation établit que toute surface de Riemann compacte est biholomorphe soit à la sphère de Riemann (genre 0), soit à un quotient du plan complexe par un réseau (genre 1, cas des courbes elliptiques), soit à un quotient du disque unité par un groupe fuchsien (genre $\ge 2$). Cette classification, bien que simple dans son principe, ouvre la voie à des théories profondes : fonctions modulaires pour le genre 1, espaces de Teichmüller et déformations pour le genre supérieur.
+
+L'étape naturelle suivante consiste à étudier les surfaces complexes, c'est-à-dire les variétés analytiques complexes de dimension 2 (donc de dimension réelle 4). La situation y est considérablement plus riche : là où une courbe n'a qu'un invariant discret (son genre), une surface en possède plusieurs — genres géométrique et arithmétique, dimensions de Kodaira, signature, caractéristique d'Euler, etc. Les travaux de l'école italienne (Castelnuovo, Enriques) au début du XX\ieme siècle, complétés et rigoureusement établis par Kodaira dans les années 1960, ont abouti à une classification birationnelle des surfaces complexes \cite{BHPV04}. On y distingue plusieurs grandes classes : les surfaces rationnelles, les surfaces réglées, les surfaces K3, les surfaces abéliennes, les surfaces de type général, et, occupant une place particulière, les \emph{surfaces elliptiques}.
+
+\section*{Les surfaces elliptiques}
+
+Une surface elliptique est, par définition, une surface complexe $S$ munie d'un morphisme surjectif $\pi: S \to C$ vers une courbe complexe $C$ dont la fibre générique $\pi^{-1}(t)$ est une courbe elliptique (une surface de Riemann de genre 1). Il s'agit donc d'une famille de courbes elliptiques paramétrée par une base.
+
+L'étude systématique de ces objets, due à Kodaira \cite{Kodaira63}, a révélé une structure remarquable. Contrairement à ce que suggère l'image naïve d'un empilement régulier de tores, la fibration présente en général un nombre fini de fibres singulières. La classification de ces fibres singulières par Kodaira constitue l'un des résultats les plus élégants de la géométrie des surfaces : on y dénombre une dizaine de types distincts ($I_n$, $I_n^*$, $II$, $III$, $IV$, $II^*$, $III^*$, $IV^*$), chacun correspondant à une configuration particulière de courbes rationnelles se coupant selon des diagrammes de Dynkin. Cette classification fine a des conséquences importantes sur les invariants de la surface : chaque type de fibre contribue de manière spécifique à la caractéristique d'Euler et à la signature.
+
+Les surfaces elliptiques ne sont pas des objets exotiques : au contraire, elles apparaissent naturellement dans de nombreux contextes. Toute surface complexe projective admet, après transformations birationnelles appropriées, une fibration elliptique ou une fibration en courbes de genre supérieur. Les surfaces K3, par exemple, admettent souvent des structures elliptiques. Les surfaces $E(n)$, construites par fibre produit à partir de $E(1)$, forment une famille infinie qui joue un rôle important en topologie différentielle. Les surfaces de Dolgachev, obtenues par des déformations particulières, ont fourni les premiers exemples de surfaces homéomorphes mais non difféomorphes.
+
+\section*{Dimension 4 et fibrations de Lefschetz}
+
+La topologie des variétés de dimension 4 occupe une position singulière. C'est la seule dimension où un même espace topologique peut supporter des structures différentiables distinctes — un phénomène mis en évidence par les travaux de Donaldson dans les années 1980, qui lui valurent la médaille Fields. Cette flexibilité exceptionnelle contraste avec la rigidité des dimensions inférieures (où la classification est essentiellement géométrique) et des dimensions supérieures (où des techniques d'absorption de type $h$-principe permettent des constructions souples). La dimension 4 est ainsi un terrain d'interaction privilégié entre géométrie algébrique, topologie différentielle et analyse.
+
+Dans ce contexte, l'étude des surfaces elliptiques complexes, vues comme variétés différentiables de dimension 4, a joué un rôle historique. Leur structure fibrée permet de les appréhender par des méthodes topologiques, et notamment par la notion de \emph{fibration de Lefschetz}.
+
+Une fibration de Lefschetz est une application $\pi: X \to \Sigma$ d'une 4-variété $X$ vers une surface de Riemann $\Sigma$ qui est une submersion en dehors d'un nombre fini de points critiques, chacun admettant un modèle local de la forme $(z_1, z_2) \mapsto z_1^2 + z_2^2$ dans des coordonnées complexes appropriées. Les fibres sont des surfaces de Riemann, et les points critiques correspondent à des fibres singulières présentant un point double ordinaire. Une surface elliptique, après lissage éventuel des singularités, fournit naturellement une fibration de Lefschetz de genre 1.
+
+\section*{Monodromie et approche combinatoire}
+
+L'invariant fondamental d'une fibration de Lefschetz est sa \emph{monodromie}. En choisissant un point base $b_0$ dans le complémentaire des valeurs critiques, on considère la fibre régulière $F_0 = \pi^{-1}(b_0)$. Le transport parallèle le long d'un lacet dans la base induit un difféomorphisme de $F_0$, défini à isotopie près. On obtient ainsi une représentation
+\[
+\rho: \pi_1(\Sigma \setminus \{p_1, \dots, p_k\}, b_0) \longrightarrow \Gamma_g
+\]
+où $\Gamma_g$ désigne le \emph{groupe de mapping class} de la surface de genre $g$ (groupe des difféomorphismes préservant l'orientation modulo isotopie).
+
+Pour le genre 1, le groupe $\Gamma_1$ s'identifie canoniquement à $SL(2,\Z)$, le groupe modulaire. La monodromie locale autour d'un point critique est un \emph{twist de Dehn} le long du cycle évanouissant, ce qui correspond, via l'identification précédente, à une matrice unipotente (conjuguée à $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ ou à son inverse). La monodromie totale, obtenue en parcourant un lacet qui enlace tous les points critiques, doit être triviale, ce qui se traduit par une relation de factorisation dans $SL(2,\Z)$ :
+\[
+\rho(\gamma_1) \cdots \rho(\gamma_k) = I,
+\]
+où les $\gamma_i$ sont des lacets autour des points critiques.
+
+Cette factorisation n'est pas unique : le choix d'un système de lacets différent modifie la factorisation par des \emph{mouvements de Hurwitz}, qui sont des relations de tresses entre les facteurs. Deux fibrations de Lefschetz sont dites équivalentes si leurs factorisations sont reliées par de tels mouvements.
+
+L'approche par la monodromie a connu un développement considérable à partir des années 1990. Donaldson \cite{Donaldson99} a démontré que toute variété symplectique de dimension 4 admet une fibration de Lefschetz, établissant ainsi un lien profond entre géométrie symplectique et topologie combinatoire. Gompf et Stipsicz \cite{GS99} ont systématisé l'utilisation de la monodromie comme outil de classification des 4-variétés. La classification des fibrations de Lefschetz de genre 1 sur la sphère, en termes de factorisations dans $SL(2,\Z)$, a été obtenue par les travaux de Moishezon, Kas et Matsumoto.
+
+\section*{Objectifs et organisation du mémoire}
+
+Le présent mémoire se propose d'étudier le lien entre surfaces elliptiques complexes et fibrations de Lefschetz de genre 1, en mettant l'accent sur le rôle de la monodromie comme pont entre géométrie algébrique et topologie différentielle. La question directrice peut être formulée ainsi : comment les propriétés géométriques d'une surface elliptique (nature des fibres singulières, invariants de Kodaira, existence de sections) se reflètent-elles dans la factorisation de sa monodromie, et inversement ?
+
+Le plan adopté est le suivant :
+
+Le \textbf{Chapitre 1} établit les fondements géométriques. Après des rappels sur les surfaces complexes et leurs invariants, nous définissons les surfaces elliptiques et présentons en détail la classification de Kodaira des fibres singulières. Nous illustrons la théorie par des exemples fondamentaux : surfaces K3, surfaces de Dolgachev, surfaces $E(n)$.
+
+Le \textbf{Chapitre 2} introduit les fibrations de Lefschetz du point de vue topologique. Nous définissons le groupe de mapping class d'une surface, les twists de Dehn, et montrons comment une surface elliptique donne naissance à une fibration de Lefschetz de genre 1. Nous discutons également la question de la réciproque : sous quelles conditions une fibration de Lefschetz provient-elle d'une structure complexe ?
+
+Le \textbf{Chapitre 3} est consacré à l'étude systématique de la monodromie. Nous définissons la représentation de monodromie, montrons comment elle s'exprime par des factorisations dans $SL(2,\Z)$, et introduisons la notion d'équivalence de Hurwitz. Nous présentons les principaux résultats de classification des fibrations elliptiques sur la sphère.
+
+Le \textbf{Chapitre 4} propose une étude de cas détaillée : la surface $E(1)$, obtenue comme éclatement du plan projectif $\CP^2$ en neuf points. Nous construisons explicitement sa fibration, identifions ses fibres singulières (douze fibres de type $I_1$), et calculons sa monodromie. Nous obtenons la relation $(UV)^6 = I$ dans $SL(2,\Z)$, qui correspond à la présentation standard du groupe modulaire. Nous ouvrons sur les généralisations aux surfaces $E(n)$ et aux surfaces de Dolgachev, et soulignons le rôle historique de ces exemples.
+
+Ce mémoire s'adresse à un lecteur possédant une connaissance de base de la géométrie des surfaces de Riemann et de la topologie algébrique élémentaire (groupes fondamentaux, revêtements). Les notions plus avancées (cohomologie des faisceaux, théorie de Hodge) seront évitées ou introduites ponctuellement lorsque nécessaire.

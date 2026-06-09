@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[mathscr]{euscript}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\newcommand{\Hom}{\mathrm{H}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newtheorem{definition}{Définition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Théorème}
+
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Bl}{Bl}
+\newcommand{\CP}{\mathbb{C}\mathbb{P}}
+\newcommand{\RP}{\mathbb{R}\mathbb{P}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Htwo}{H_2}
+\newcommand{\HtwoR}{H_2(-;\R)}
+
+\begin{document}
+
+\title{Forme d'intersection, signature et éclatement}
+\author{}
+\date{}
+\maketitle
+
+\section*{Cas \(k = 2\) : homologie de degr\'e 2}
+
+Soit \(M_1^4\) et \(M_2^4\) deux vari\'et\'es connexes, orientables, de dimension 4. On consid\`ere leur somme connexe \(M = M_1 \# M_2\).
+
+On pose \(U = M_1 \setminus \{\text{int\'erieur d'une petite boule}\}\) et \(V = M_2 \setminus \{\text{int\'erieur d'une petite boule}\}\), l\'eg\`erement agrandis pour former un recouvrement de \(M\). L'intersection \(U \cap V\) est hom\'eomorphe \`a \(\mathbb{S}^3 \times (-\epsilon, \epsilon)\), donc homotopiquement \'equivalente \`a \(\mathbb{S}^3\).
+
+La suite exacte de Mayer-Vietoris en homologie r\'eduite donne :
+\[
+\cdots \to \Hom_2(\mathbb{S}^3) \to \Hom_2(U) \oplus \Hom_2(V) \to \Hom_2(M) \to \Hom_1(\mathbb{S}^3) \to \cdots
+\]
+
+On conna\^it l'homologie de la sph\`ere \(\mathbb{S}^3\) :
+\[
+\Hom_1(\mathbb{S}^3) = 0 \quad \text{et} \quad \Hom_2(\mathbb{S}^3) = 0.
+\]
+
+De plus, \(U\) se r\'etracte par d\'eformation sur \(M_1\) priv\'e d'un point, donc \(\Hom_2(U) \cong \Hom_2(M_1)\). De m\^eme, \(\Hom_2(V) \cong \Hom_2(M_2)\). (On pourrait aussi utiliser le théorème d'excision)
+
+La suite exacte devient alors :
+\[
+0 \to \Hom_2(M_1) \oplus \Hom_2(M_2) \to \Hom_2(M) \to 0.
+\]
+
+Cette suite \'etant exacte, la fl\`eche du milieu est un isomorphisme. On obtient donc :
+\[
+\boxed{\Hom_2(M_1 \# M_2) \cong \Hom_2(M_1) \oplus \Hom_2(M_2)}.
+\]
+
+\section{Forme d'intersection}
+
+Soit $M$ une variété lisse, fermée, orientable de dimension $4$. La forme d'intersection est un outil fondamental qui encode l'intersection des cycles de dimension $2$.
+
+\begin{definition}
+Soit $M$ une $4$-variété lisse fermée orientée. La \textbf{forme d'intersection}
+\[
+Q_M : H_2(M;\Z) \times H_2(M;\Z) \longrightarrow \Z
+\]
+est définie par
+\[
+Q_M(\alpha,\beta) = \langle \alpha \cup \beta, [M] \rangle,
+\]
+où $\alpha,\beta \in H^2(M;\Z)$ sont les classes de Poincaré duales de $\alpha$ et $\beta$ dans la cohomologie. 
+\end{definition}
+
+On préfère parfois une description alternative. Soit $\alpha, \beta \in H_2(M;\Z)$. Choisissons des surfaces lisses orientées $A,B \subset M$ représentant $\alpha$ et $\beta$ et les mettant en position générale. Alors $A$ et $B$ s'intersectent transversalement en un nombre fini de points. En orientant $M$ et les surfaces, chaque point d'intersection reçoit un signe $\pm 1$. La somme de ces signes est $Q_M(\alpha,\beta)$, indépendante des choix.
+
+\begin{definition}[Version alternative]
+Soit $\alpha,\beta \in H_2(M;\Z)$. Choisissons des cycles lisses orientés $a,b$ représentant $\alpha,\beta$ transverses. Alors
+\[
+Q_M(\alpha,\beta) = \sum_{p \in a \cap b} \varepsilon(p),
+\]
+où $\varepsilon(p) = \pm 1$ est le signe d'intersection déterminé par les orientations.
+\end{definition}
+
+La forme $Q_M$ est symétrique ($Q_M(\alpha,\beta)=Q_M(\beta,\alpha)$) et unimodulaire (car $M$ est fermée orientée). En coefficients réels, $Q_M$ est une forme bilinéaire symétrique sur $H_2(M;\R)$.
+
+\begin{definition}
+La \textbf{signature} $\sigma(M)$ de $M$ est la signature de la forme $Q_M$ sur $H_2(M;\R)$, i.e. $\sigma(M) = b_2^+(M) - b_2^-(M)$, où $b_2^+(M)$ (resp. $b_2^-(M)$) est la dimension d'un sous-espace maximal sur lequel $Q_M$ est définie positive (resp. négative).
+\end{definition}
+
+\section{Exemple : $\mathbb{CP}^2$ et $\mathbb{CP}^2 \# n\overline{\mathbb{CP}^2}$}
+
+\begin{itemize}
+    \item Pour $\CP^2$ (orientation complexe standard), $H_2(\CP^2;\Z) \cong \Z$ engendré par la classe de la droite projective $\ell$. On a $\ell \cdot \ell = 1$. Donc $Q_{\CP^2} = (1)$ et $\sigma(\CP^2)=1$.
+    \item Pour $\overline{\CP}^2$ (même variété avec orientation opposée), $Q_{\overline{\CP}^2} = (-1)$ et $\sigma = -1$.
+\end{itemize}
+
+Soit $X_n = \CP^2 \# n\overline{\CP}^2$, la somme connexe de $\CP^2$ avec $n$ copies de $\overline{\CP}^2$. Par additivité de la forme d'intersection sous somme connexe en dimension $4$ (à condition de prendre en compte l'orientation), on a
+\[
+H_2(X_n;\Z) \cong \Z^{n+1},
+\]
+et la forme d'intersection est la somme orthogonale
+\[
+Q_{X_n} = \langle 1 \rangle \oplus \underbrace{\langle -1 \rangle \oplus \cdots \oplus \langle -1 \rangle}_{n \text{ fois}}.
+\]
+En termes de matrice,
+\[
+Q_{X_n} = \begin{pmatrix}
+1 & & & \\
+& -1 & & \\
+& & \ddots & \\
+& & & -1
+\end{pmatrix}.
+\]
+Sa signature est donc
+\[
+\sigma(X_n) = 1 - n.
+\]
+
+\section{Éclatement (blow-up) de $\mathbb{C}^n$ en $0$}
+
+L'éclatement est une opération locale qui remplace un point par un diviseur exceptionnel.
+
+\begin{definition}
+Soit $U = \C^n$ avec l'origine $0$. Le \textbf{blow-up} de $\C^n$ en $0$ est la variété
+\[
+\Bl_0 \C^n = \left\{ (x,\ell) \in \C^n \times \CP^{n-1} \mid x \in \ell \right\}.
+\]
+La projection $\pi : \Bl_0 \C^n \to \C^n$ est donnée par $(x,\ell) \mapsto x$.
+\end{definition}
+
+
+En dimension $4$, l'éclatement d'une $4$-variété en un point correspond à la somme connexe avec $\overline{\CP}^2$. Plus précisément, si $M$ est une $4$-variété lisse orientée et $p \in M$, alors
+\[
+M \# \overline{\CP}^2 \cong \Bl_p M.
+\]
+Ainsi, la forme d'intersection se modifie par addition d'une copie de $\langle -1 \rangle$ :
+\[
+Q_{\Bl_p M} \cong Q_M \oplus \langle -1 \rangle.
+\]
+Cette relation explique pourquoi $\CP^2 \# n\overline{\CP}^2$ est obtenu en éclatant $n$ fois $\CP^2$ en des points génériques.
+
+\end{document}

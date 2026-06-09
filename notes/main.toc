@@ -1,0 +1,36 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{Introduction}{2}{section*.2}%
+\contentsline {section}{\numberline {1}Rappels et prérequis}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Somme connexe}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Formes bilinéaires symétriques entières à discriminant $\pm 1$}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Définitions}{4}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Invariants}{4}{subsubsection.1.2.2}%
+\contentsline {paragraph}{Rang.}{4}{section*.5}%
+\contentsline {paragraph}{Signature et indice.}{4}{section*.6}%
+\contentsline {paragraph}{Type : pair ou impair.}{4}{section*.7}%
+\contentsline {paragraph}{L'invariant $\sigma (E)$.}{5}{section*.8}%
+\contentsline {subsubsection}{\numberline {1.2.3}Exemples fondamentaux}{5}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}La congruence modulo $8$}{6}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Théorèmes de classification}{6}{subsubsection.1.2.5}%
+\contentsline {paragraph}{Cas indéfini, type I.}{6}{section*.9}%
+\contentsline {paragraph}{Cas indéfini, type II.}{6}{section*.10}%
+\contentsline {paragraph}{Cas défini.}{7}{section*.11}%
+\contentsline {section}{\numberline {2}Forme d'intersection}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Transversalité}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Propriétés}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Exemples}{11}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Invariants}{12}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Rang}{12}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Signature}{12}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Parité}{13}{subsubsection.2.4.3}%
+\contentsline {section}{\numberline {3}Classification des formes d'intersection}{14}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Formes unimodulaires indéfinies}{14}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Le cas défini : une classification impossible}{14}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Théorèmes importants}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Rokhlin(1952)}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Donaldson(1983)}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Freedman(1982)}{16}{subsection.4.3}%
+\contentsline {section}{\numberline {5}La forme quadratique $E_8$ : un exemple fondamental}{17}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Définition et premières propriétés}{17}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Non-diagonalisabilité sur $\mathbb {Z}$}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Réalisation comme forme d'intersection}{18}{subsection.5.3}%
