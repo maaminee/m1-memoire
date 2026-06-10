@@ -1,0 +1,320 @@
+\subsection{Formes bilinéaires symétriques entières à discriminant $\pm 1$}
+
+Cette sous-section développe les outils algébriques nécessaires à l'étude des formes
+d'intersection des variétés compactes orientées de dimension~$4$. Les résultats
+présentés suivent l'exposé de Serre~\cite{Serre1962} au Séminaire Henri Cartan.
+
+% ------------------------------------------------------------
+\subsubsection{Définitions}
+% ------------------------------------------------------------
+
+\begin{definition}
+Soit $n \geq 0$ un entier. On appelle \emph{forme bilinéaire symétrique entière
+unimodulaire de rang $n$} la donnée d'un $\ZZ$-module libre $E$ de rang $n$,
+muni d'une forme bilinéaire symétrique
+\[
+  \varphi : E \times E \longrightarrow \ZZ, \qquad (x,y) \longmapsto x \cdot y,
+\]
+telle que l'application linéaire naturelle $E \to E^* := \mathrm{Hom}_\ZZ(E,\ZZ)$
+induite par $\varphi$ soit un isomorphisme.
+\end{definition}
+
+\begin{remark}
+Si $(e_i)_{1 \leq i \leq n}$ est une base de $E$ et si l'on pose
+$a_{ij} = e_i \cdot e_j$, la condition d'unimodularité est équivalente à
+$\det(a_{ij}) = \pm 1$.
+Changer de base remplace la matrice $A = (a_{ij})$ par ${}^t\!BAB$ avec
+$B \in \mathrm{GL}_n(\ZZ)$ ; deux matrices ainsi reliées définissent des formes
+dites \emph{équivalentes}.
+\end{remark}
+
+Pour chaque entier naturel $n$, on note $\mathcal{S}_n$ l'ensemble des couples $(E, \cdot)$, où $E$ est un $\mathbb{Z}$-module libre de rang $n$ et $\cdot : E \times E \to \mathbb{Z}$ est une forme bilinéaire symétrique entière unimodulaire, c'est-à-dire dont le discriminant vaut $\pm 1$. Deux tels objets $(E, \cdot)$ et $(E', \cdot')$ sont dits isomorphes s'il existe un isomorphisme de $\mathbb{Z}$-modules $\phi : E \to E'$ qui préserve la forme, au sens où pour tous $x, y \in E$, on a $\phi(x) \cdot' \phi(y) = x \cdot y$. L'ensemble $\mathcal{S}_n$ est alors considéré à morphisme près (ou rigoureusement, comme l'ensemble des classes d'isomorphismes de ces structures). Enfin, on pose $\mathcal{S} = \bigcup_{n \geq 0} \mathcal{S}_n$ pour désigner la collection de toutes ces formes, indépendamment de leur rang.
+
+\medskip
+
+
+% ------------------------------------------------------------
+\subsubsection{Invariants}
+% ------------------------------------------------------------
+
+Soit $(E, \cdot) \in \mathcal{S}_n$. Nous présentons dans cette section les différents invariants algébriques associés à cet objet, qui joueront un rôle crucial dans sa classification.
+
+\paragraph{Rang et Signature.}
+L'extension des scalaires du $\mathbb{Z}$-module $E$ au corps des réels donne naissance à un $\mathbb{R}$–espace vectoriel $V = E \otimes_{\mathbb{Z}} \mathbb{R}$ de dimension $n$, muni d'une forme bilinéaire symétrique réelle non dégénérée. D'après la loi d'inertie de Sylvester, il existe un couple d'entiers naturels $(s, t)$ tel que, dans une base orthogonale appropriée de $V$, la forme quadratique associée s'écrive :
+\[
+q(x) = \sum_{i=1}^{s} x_i^2 - \sum_{j=1}^{t} x_{s+j}^2
+\]
+Le couple $(s, t)$ est indépendant du choix de la base et constitue la \emph{signature} de la forme.
+
+\begin{definition}[Rang et Indice]
+Soit $(E, \cdot) \in \mathcal{S}_n$. 
+\begin{enumerate}
+    \item Le \emph{rang} de $E$, noté $r(E)$, est l'entier $n = s + t$.
+    \item L'\emph{indice} (ou signature) de $E$ est l'entier $\tau(E) = s - t$.
+\end{enumerate}
+On vérifie immédiatement que $-r(E) \leq \tau(E) \leq r(E)$ avec $\tau(E) \equiv r(E) \pmod{2}$. On dit que la forme est \emph{définie} si $|\tau(E)| = r(E)$, et \emph{indéfinie} dans le cas contraire.
+\end{definition}
+
+\paragraph{Type et Parité.}
+Une autre distinction fondamentale repose sur les valeurs prises par la forme quadratique sur les éléments entiers.
+
+\begin{definition}[Type d'une forme]
+Une forme $(E, \cdot) \in \mathcal{S}$ est dite \emph{paire} (ou de \emph{type II}) si pour tout $x \in E$, l'entier $x \cdot x$ est pair. Cela équivaut à exiger que tous les coefficients diagonaux de sa matrice associée (dans n'importe quelle base) soient des entiers pairs. Dans le cas contraire, la forme est dite \emph{impaire} (ou de \emph{type I}).
+\end{definition}
+
+\begin{remark}
+La somme directe $E_1 \oplus E_2$ est de type II si et seulement si $E_1$ et $E_2$ sont toutes les deux de type II.
+\end{remark}
+
+\paragraph{L'invariant de caractéristique $\sigma(E)$.}
+Soit $\bar{E} = E/2E$ le $\mathbb{F}_2$-espace vectoriel obtenu par réduction modulo 2. La forme bilinéaire sur $E$ induit par passage au quotient une forme bilinéaire symétrique non dégénérée sur $\bar{E}$.
+
+L'application $\bar{x} \mapsto \overline{x \cdot x}$ définit une forme linéaire sur $\bar{E}$ (c'est-à-dire un élément du dual $\bar{E}^*$). Par non-dégénérescence de la forme bilinéaire sur $\bar{E}$, le théorème de représentation de Riesz garantit l'existence d'un unique élément $\bar{u} \in \bar{E}$ tel que :
+\[
+\bar{u} \cdot \bar{x} = \overline{x \cdot x} \qquad \text{pour tout } \bar{x} \in \bar{E}.
+\]
+En choisissant un représentant $u \in E$ de la classe $\bar{u}$, on obtient un élément (unique modulo $2E$) qui vérifie l'identité $u \cdot x \equiv x \cdot x \pmod{2}$ pour tout $x \in E$. Un tel élément est appelé \emph{élément caractéristique} de la forme.
+
+Si l'on substitue à $u$ un autre représentant $u + 2x$ (avec $x \in E$), on observe que :
+\[
+(u + 2x) \cdot (u + 2x) = u \cdot u + 4(u \cdot x + x \cdot x)
+\]
+Puisque $u \cdot x \equiv x \cdot x \pmod{2}$ par définition, la quantité entre parenthèses est un entier pair. Ainsi, le terme $4(u \cdot x + x \cdot x)$ est un multiple de $8$, ce qui implique :
+\[
+(u + 2x) \cdot (u + 2x) \equiv u \cdot u \pmod{8}
+\]
+L'évaluation de $u \cdot u$ modulo 8 est donc totalement indépendante du choix du représentant.
+
+\begin{definition}[Invariant $\sigma$]
+On appelle \emph{invariant de caractéristique} de $E$, noté $\sigma(E) \in \mathbb{Z}/8\mathbb{Z}$, la classe de congruence modulo 8 de $u \cdot u$, où $u$ est un élément caractéristique de $E$.
+\end{definition}
+
+\begin{remark}
+Si $E$ est de type II, le vecteur nul $u = 0$ est trivialement un élément caractéristique, ce qui impose immédiatement $\sigma(E) = 0$. En topologie de dimension 4, la classe $\bar{u}$ correspond précisément à la \textbf{classe de Wu} de la variété. La condition de type II se traduit alors par l'annulation de la deuxième classe de Stiefel-Whitney ($w_2 = 0$), caractérisant les variétés qui admettent une structure de spin.
+\end{remark}
+
+\paragraph{Additivité des Invariants.}
+L'ensemble de ces invariants se comporte de manière remarquable vis-à-vis de la somme directe. Si $E = E_1 \oplus E_2$, on a :
+\[
+r(E) = r(E_1) + r(E_2), \quad \tau(E) = \tau(E_1) + \tau(E_2), \quad \sigma(E) = \sigma(E_1) + \sigma(E_2).
+\]
+
+% ------------------------------------------------------------
+\subsubsection{Exemples fondamentaux}
+% ------------------------------------------------------------
+
+\begin{exemple}[Les modules $I_+$ et $I_-$]
+On note $I_+$ (resp. $I_-$) le $\ZZ$-module $\ZZ$ muni de la forme
+$(x,y) \mapsto xy$ (resp. $(x,y) \mapsto -xy$). Pour des entiers $s, t \geq 0$, le
+module $sI_+ \oplus tI_-$ a pour forme quadratique $\sum_{i=1}^s x_i^2 - \sum_{j=1}^t y_j^2$
+et pour invariants :
+\[
+  r = s+t, \qquad \tau = s-t, \qquad \sigma \equiv s-t \pmod{8}.
+\]
+Sauf dans le cas trivial $(s,t) = (0,0)$, ce module est de type~I.
+\end{exemple}
+
+\begin{exemple}[Le module hyperbolique $U$]
+On note $U \in \mathcal{S}_2$ le module défini par la matrice
+$\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$.
+La forme quadratique associée est $2x_1 x_2$, donc tous les termes diagonaux sont
+nuls : $U$ est de type~II. Ses invariants sont :
+\[
+  r(U) = 2, \qquad \tau(U) = 0,  \qquad \sigma(U) = 0.
+\]
+\end{exemple}
+
+\begin{exemple}[Le réseau $E_8$]
+\label{ex:E8}
+On considère l'espace vectoriel $\mathbb{Q}^8$ muni de la forme bilinéaire standard $\cdot$ donnée par $x \cdot y = \sum_{i=1}^8 x_i y_i$. Posons $E_0 = \mathbb{Z}^8$ et définissons le sous-module $E_1$ par :
+\[
+E_1 = \left\{ x \in E_0 \;\middle|\; \textstyle\sum_{i=1}^8 x_i \equiv 0 \pmod{2} \right\}.
+\]
+Le \emph{réseau $E_8$} est alors défini comme le sous-$\mathbb{Z}$-module de $\mathbb{Q}^8$ engendré par $E_1$ et par le vecteur $e = \bigl(\tfrac{1}{2}, \ldots, \tfrac{1}{2}\bigr)$. Un vecteur $x = (x_i) \in \mathbb{Q}^8$ appartient à $E_8$ si et seulement si ses coordonnées vérifient les conditions suivantes :
+\[
+2x_i \in \mathbb{Z}, \qquad x_i - x_j \in \mathbb{Z}, \qquad \textstyle\sum_{i=1}^8 x_i \in 2\mathbb{Z}.
+\]
+La restriction de la forme bilinéaire standard à $E_8$ prend des valeurs entières, et ses invariants algébriques sont :
+\[
+r(E_8) = 8, \qquad \tau(E_8) = 8, \qquad \sigma(E_8) = 0, \qquad \text{disc}(E_8) = 1.
+\]
+Le réseau $E_8$ est donc défini positif, de rang $8$, unimodulaire et de type II. Il contient exactement $240$ vecteurs de norme $2$ (appelés les racines courtes), donnés par :
+\[
+\pm e_i \pm e_j \; (i \neq j), \qquad
+\tfrac{1}{2}\textstyle\sum_{i=1}^8 \varepsilon_i e_i \;\text{ avec }\;
+\varepsilon_i = \pm 1,\; \textstyle\prod_{i=1}^8 \varepsilon_i = 1.
+\]
+Dans une base appropriée, la matrice de la forme bilinéaire coïncide avec la matrice:
+\[
+A_{E_8} = \begin{pmatrix}
+    2  & 1  & 0  & 0  & 0  & 0  & 0  & 0 \\
+    1  & 2  & 1  & 0  & -1 & 0  & 0  & 0 \\
+    0  & 1  & 2  & 1  & 0  & 0  & 0  & 0 \\
+    0  & 0  & 1  & 2  & 1  & 0  & 0  & 0 \\
+    0  & -1 & 0  & 1  & 2  & 1  & 0  & 0 \\
+    0  & 0  & 0  & 0  & 1  & 2  & 1  & 0 \\
+    0  & 0  & 0  & 0  & 0  & 1  & 2  & 1 \\
+    0  & 0  & 0  & 0  & 0  & 0  & 1  & 2
+\end{pmatrix}.
+\]
+On vérifie tant bien que mal à montrer que $\det(A_{E_8}) = \text{disc}(E_8) = 1$ et que tous les termes diagonaux sont pairs, ce qui confirme de manière matricielle l'unimodularité et le type II de ce réseau exceptionnel.
+\end{exemple}
+% ------------------------------------------------------------
+\subsubsection{La congruence modulo $8$}
+% ------------------------------------------------------------
+
+\begin{theorem}[Serre {\cite{Serre1962}}]
+\label{thm:mod8}
+Pour tout $E \in \mathcal{S}$, on a $\sigma(E) \equiv \tau(E) \pmod{8}$.
+\end{theorem}
+
+\begin{corollary}
+\label{cor:typeII_mod8}
+Si $E \in \mathcal{S}$ est de type~II, alors $\tau(E) \equiv 0 \pmod{8}$.
+\end{corollary}
+
+\begin{corollary}
+Si $E \in \mathcal{S}$ est défini et de type~II, alors $r(E) \equiv 0 \pmod{8}$.
+\end{corollary}
+
+\begin{remark}
+Ces corollaires expliquent pourquoi le premier exemple non trivial de forme unimodulaire
+définie positive de type~II est de rang~$8$ : c'est le réseau $E_8$.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsubsection{Théorèmes de classification}
+% ------------------------------------------------------------
+
+Dans le cas des formes indéfinies, la structure algébrique est intégralement dictée par les invariants fondamentaux. Le théorème suivant, dû à Serre, établit un résultat d'unicité remarquable.
+
+\begin{theorem}[Classification des formes indéfinies]
+\label{thm:class_indef}
+Soient $E, E' \in \mathcal{S}$ deux formes indéfinies ayant même rang, même indice et même type. Alors $E \simeq E'$.
+\end{theorem}
+% ============================================================
+% DÉMONSTRATION DU THÉORÈME GÉNÉRAL DE CLASSIFICATION INDÉFINIE
+% ============================================================
+\begin{proof}
+La démonstration procède par récurrence sur le rang $n = r(E)$ de la forme.
+
+Supposons d'abord que $E$ et $E'$ soient deux formes indéfinies de type I ayant même rang $n$ et même indice $\tau$. Si $n < 5$, le résultat découle d'une vérification directe sur les petites dimensions que nous décidons d'omettre par soucis de simplification. Supposons donc $n \geq 5$.
+
+Le théorème de Meyer s'applique car la forme est entière, unimodulaire, indéfinie et de rang supérieur ou égal à $5$. Il garantit l'existence d'un vecteur non nul $x_0 \in E$ tel que $x_0 \cdot x_0 = 0$. Soit $d$ le plus grand commun diviseur des coordonnées de $x_0$ dans une base de $E$. Le vecteur $x = \frac{1}{d}x_0$ appartient à $E$, il est non nul, primitif (ses coordonnées sont globales premières entre elles), et vérifie encore :
+\[
+x \cdot x = \frac{1}{d^2}(x_0 \cdot x_0) = 0.
+\]
+Considérons l'application $\mathbb{Z}$-linéaire $\phi_x : E \to \mathbb{Z}$ définie par $\phi_x(v) = x \cdot v$. Puisque la forme bilinéaire est unimodulaire, l'application d'adjointement $v \mapsto (w \mapsto v \cdot w)$ est un isomorphisme de $E$ sur son dual $E^*$. Comme $x$ est primitif, la forme linéaire $\phi_x$ est surjective de $E$ sur $\mathbb{Z}$. Par conséquent, il existe un vecteur $y \in E$ tel que :
+\[
+x \cdot y = 1.
+\]
+Nous cherchons maintenant à construire un vecteur $z \in E$ de norme $1$ ou $-1$. Analysons la parité de l'entier $y \cdot y$ :
+\begin{itemize}
+    \item Si $y \cdot y$ est un entier impair, il existe un entier $k \in \mathbb{Z}$ tel que $y \cdot y = 2k + 1$. Définissons alors le vecteur $z = y - kx$. En calculant sa norme par bilinéarité et symétrie, on obtient :
+    \[
+    z \cdot z = (y - kx) \cdot (y - kx) = y \cdot y - 2k(x \cdot y) + k^2(x \cdot x).
+    \]
+    En injectant $y \cdot y = 2k+1$, $x \cdot y = 1$ et $x \cdot x = 0$, il vient :
+    \[
+    z \cdot z = (2k + 1) - 2k(1) + k^2(0) = 1.
+    \]
+    Le vecteur $z$ convient.
+    
+    \item Si $y \cdot y$ est un entier pair, la construction précédente échoue. C'est ici que l'hypothèse de type I intervient : par définition, il existe au moins un vecteur $w \in E$ dont la norme $w \cdot w$ est un entier impair. Posons $m = x \cdot w \in \mathbb{Z}$. Définissons un nouveau vecteur $y' = y + w - (m + \frac{y \cdot y}{2})x$. Calculons le produit scalaire $x \cdot y'$ :
+    \[
+    x \cdot y' = x \cdot y + x \cdot w - \left(m + \frac{y \cdot y}{2}\right)(x \cdot x) = 1 + m - 0 = 1 + m.
+    \]
+    Calculons maintenant la norme de $y'$ modulo $2$. Puisque $x \cdot x = 0$ et $y \cdot y \equiv 0 \pmod 2$, le terme en $x$ ne contribue pas à la parité de la norme. On a donc :
+    \[
+    y' \cdot y' \equiv y \cdot y + w \cdot w + 2(y \cdot w) \pmod 2.
+    \]
+    Comme $y \cdot y$ est pair et $2(y \cdot w)$ est pair, il reste $y' \cdot y' \equiv w \cdot w \pmod 2$. Or $w \cdot w$ est impair, donc $y' \cdot y'$ est un entier impair. Nous sommes ainsi ramenés au cas précédent : en remplaçant le couple $(x,y)$ par un couple modifié basé sur $(x, y')$, on sait construire un vecteur $z \in E$ tel que $z \cdot z = 1$ (ou $-1$ si l'on avait inversé le signe global de la forme).
+\end{itemize}
+
+Une fois ce vecteur $z$ obtenu, l'application linéaire $\phi_z : E \to \mathbb{Z}, \, v \mapsto z \cdot v$ est surjective car $\phi_z(z) = 1$. Le module $E$ se scinde alors de manière interne en la somme directe de la droite $\mathbb{Z}z$ et de son noyau, qui n'est autre que l'orthogonal $(\mathbb{Z}z)^\perp$ :
+\[
+E = \mathbb{Z}z \oplus (\mathbb{Z}z)^\perp \simeq I_+ \oplus E_1
+\]
+où $E_1 = (\mathbb{Z}z)^\perp$. Par additivité des invariants, $E_1$ est une forme unimodulaire de rang $n-1$ et d'indice $\tau - 1$, qui demeure indéfinie. En appliquant la même décomposition à $E'$, on obtient $E' \simeq I_+ \oplus E'_1$, où $E'_1$ possède le même rang $n-1$ et le même indice $\tau - 1$ que $E_1$. L'hypothèse de récurrence assure alors l'isomorphisme $E_1 \simeq E'_1$, d'où l'on conclut que :
+\[
+E \simeq I_+ \oplus E_1 \simeq I_+ \oplus E'_1 \simeq E'.
+\]
+
+Supposons désormais que $E$ et $E'$ soient de type II. La forme quadratique ne prenant que des valeurs paires, le rôle du modèle élémentaire est joué par le plan hyperbolique $U$, de matrice $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$. 
+
+Le théorème de Meyer assure à nouveau l'existence d'un vecteur non nul et primitif $f_1 \in E$ vérifiant $f_1 \cdot f_1 = 0$. Par la même propriété d'unimodularité et de surjectivité de la forme associée à un vecteur primitif, il existe un vecteur $g \in E$ tel que :
+\[
+f_1 \cdot g = 1.
+\]
+Puisque $E$ est de type II, la norme $g \cdot g$ est nécessairement un entier pair. On peut donc poser $g \cdot g = 2k$ pour un certain $k \in \mathbb{Z}$. Construisons le vecteur $f_2 = g - k f_1$. Vérifions ses produits scalaires par un calcul algébrique explicite :
+\[
+f_1 \cdot f_2 = f_1 \cdot (g - k f_1) = f_1 \cdot g - k(f_1 \cdot f_1) = 1 - k(0) = 1.
+\]
+\[
+f_2 \cdot f_2 = (g - k f_1) \cdot (g - k f_1) = g \cdot g - 2k(f_1 \cdot g) + k^2(f_1 \cdot f_1).
+\]
+En remplaçant les valeurs, on trouve :
+\[
+f_2 \cdot f_2 = 2k - 2k(1) + k^2(0) = 0.
+\]
+Le sous-module $H = \mathbb{Z}f_1 \oplus \mathbb{Z}f_2$ possède la matrice de la forme standard $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ dans la base $(f_1, f_2)$, il est donc isomorphe au plan hyperbolique $U$. Comme le déterminant de cette matrice vaut $-1$, la restriction de la forme à $H$ est unimodulaire. Le module global se scinde donc en somme directe orthogonale :
+\[
+E = H \oplus H^\perp \simeq U \oplus E_2
+\]
+où $E_2 = H^\perp$ est un sous-module de type II (car inclus dans $E$), de rang $n-2$ et de même indice $\tau$ (car l'indice de $U$ est nul). Par hypothèse de récurrence, $E_2$ est uniquement déterminé à isomorphisme près par ses invariants. Le même raisonnement appliqué à $E'$ montrant que $E' \simeq U \oplus E'_2$ avec $E_2 \simeq E'_2$, on obtient $E \simeq E'$, ce qui achève la démonstration.
+\end{proof}
+
+Ce théorème d'unicité permet d'exhiber des modèles représentatifs explicites pour chaque classe d'isomorphisme, selon le type de la forme considérée.
+
+\begin{corollary}[Serre {\cite{Serre1962}}]
+\label{thm:indefI}
+Si $(E, \cdot) \in \mathcal{S}$ est indéfini et de type I, alors il existe un isomorphisme :
+\[
+E \simeq sI_+ \oplus tI_-
+\]
+où $s = \frac{r(E)+\tau(E)}{2}$ et $t = \frac{r(E)-\tau(E)}{2}$.
+\end{corollary}
+
+% ============================================================
+% PLACE POUR LA PREUVE DU CAS TYPE I (Tricky ou simple vérification des invariants)
+% ============================================================
+% \begin{proof}
+% Il suffit de vérifier que la forme stable $sI_+ \oplus tI_-$ est bien indéfinie, de type I, et possède un rang et un indice identiques à ceux de $E$. Le Théorème \ref{thm:class_indef} conclut immédiatement à l'isomorphisme.
+% \end{proof}
+% ============================================================
+
+\begin{corollary}[Serre {\cite{Serre1962}}]
+\label{thm:indefII}
+Si $(E, \cdot) \in \mathcal{S}$ est indéfini et de type II, alors il existe un isomorphisme :
+\[
+E \simeq pU \oplus q (\text{sgn}(\tau(E))E_8)
+\]
+où $q = \frac{|\tau(E)|}{8}$ et $p = \frac{r(E) - |\tau(E)|}{2}$, avec la convention $0E_8 = 0$.
+\end{corollary}
+
+% ============================================================
+% PLACE POUR LA PREUVE DU CAS TYPE II (VERSION UNIFIÉE)
+% ============================================================
+% \begin{proof}
+% Un calcul direct montre que le membre de droite est une forme indéfinie (car $p \geq 1$ dès lors que la forme est indéfinie) et de type II (comme somme directe de formes de type II). 
+% Son rang vaut $2p + 8q = (r(E) - |\tau(E)|) + |\tau(E)| = r(E)$. 
+% Son indice vaut $\text{sgn}(\tau(E)) \cdot 8q = \tau(E)$.
+% L'unicité découlant du Théorème \ref{thm:class_indef} permet d'en déduire immédiatement l'isomorphisme.
+% \end{proof}
+% ============================================================
+
+
+\paragraph{Cas défini.}
+Dans le cas défini, il n'existe malheureusement pas de théorème de structure aussi simple ou universel. On peut néanmoins affirmer que pour chaque rang $n$, l'ensemble $\mathcal{S}_n$ ne contient qu'un \emph{nombre fini} de classes d'isomorphisme. 
+
+La classification explicite est un problème combinatoire complexe qui n'a été menée à bien que pour de petites valeurs de $n$ (notamment par Kneser~\cite{Kneser1957} pour $n \leq 16$). Pour le type II, l'étude de l'invariant de caractéristique impose la condition arithmétique $r(E) \equiv 0 \pmod 8$. La situation se résume ainsi pour les petits rangs :
+
+\begin{proposition}
+\label{prop:defII_petits_rangs}
+\begin{itemize}
+    \item Pour $r(E) = 8$ : le seul module défini positif de type II est le réseau $E_8$.
+    \item Pour $r(E) = 16$ : il existe exactement deux classes d'isomorphisme non isomorphes entre elles, à savoir $E_8 \oplus E_8$ et le réseau connexe par commutations alternées, noté communément $D_{16}^+$.
+\end{itemize}
+\end{proposition}
+
+Ce phénomène illustre la rupture majeure entre les deux familles : deux formes unimodulaires définies de même rang, même indice et même type peuvent ne pas être isomorphes. La classification des formes définies constitue ainsi un problème sensiblement plus difficile que celui des formes indéfinies, une complexité algébrique qui fait écho à la richesse géométrique des structures lisses sur les $4$-variétés correspondantes.

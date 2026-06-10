@@ -1,0 +1,74 @@
+\subsection{Rappels d'algèbre linéaire et théorie des modules}
+
+L'objectif de cette sous-section est de fixer les notations et les structures fondamentales concernant la théorie des $\mathbb{Z}$-modules libres, qui constitueront le socle algébrique de notre étude.
+
+\begin{definition}[$\mathbb{Z}$-module]
+Un $\mathbb{Z}$-module est un groupe abélien $(E, +)$ muni d'une loi de composition externe $\mathbb{Z} \times E \to E$, notée $(k, x) \mapsto kx$, distributive par rapport à l'addition sur $E$ et sur $\mathbb{Z}$, et associative avec la multiplication dans $\mathbb{Z}$.
+\end{definition}
+
+\begin{definition}[Bases et liberté]
+Soit $E$ un $\mathbb{Z}$-module. 
+\begin{enumerate}
+    \item Une famille $(e_i)_{i \in I}$ d'éléments de $E$ est dite \emph{libre} si toute combinaison linéaire finie nulle à coefficients entiers est triviale.
+    \item Elle est dite \emph{génératrice} si tout élément de $E$ s'écrit comme combinaison linéaire finie d'éléments de cette famille.
+    \item Une famille à la fois libre et génératrice est une \emph{base} de $E$. Un module possédant une base est dit \emph{libre}.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Rang d'un module]
+Si un $\mathbb{Z}$-module libre $E$ possède une base finie de $n$ éléments, alors toutes ses bases possèdent exactement $n$ éléments. L'entier $n$ est unique et est appelé le \emph{rang} de $E$, noté $r(E)$. On a alors un isomorphisme $E \simeq \mathbb{Z}^n$.
+\end{proposition}
+
+
+\begin{definition}[Morphismes de modules]
+Soient $E$ et $F$ deux $\mathbb{Z}$-modules. Une application $f : E \to F$ est un \emph{morphisme de $\mathbb{Z}$-modules} (ou application $\mathbb{Z}$-linéaire) si pour tous $k, l \in \mathbb{Z}$ et tous $x, y \in E^2$ :
+\[
+f(kx + ly) = kf(x) + lf(y)
+\]
+Si $f$ est bijective, son application réciproque $f^{-1}$ est également $\mathbb{Z}$-linéaire. L'application $f$ est alors un \emph{isomorphisme}, et l'on note $E \simeq F$.
+\end{definition}
+
+\begin{definition}[Somme directe]
+Soient $E_1$ et $E_2$ deux sous-modules d'un $\mathbb{Z}$-module $E$. On dit que $E$ est la \emph{somme directe} de $E_1$ et $E_2$, noté $E = E_1 \oplus E_2$, si tout élément $x \in E$ se décompose de manière unique sous la forme $x = x_1 + x_2$ avec $x_1 \in E_1$ et $x_2 \in E_2$.
+\end{definition}
+
+\begin{proposition}[Additivité du rang]
+Si $E = E_1 \oplus E_2$ et que $E$ est libre de rang fini, alors ses sous-modules $E_1$ et $E_2$ sont également libres de rang fini, et on a l'égalité :
+\[
+r(E_1 \oplus E_2) = r(E_1) + r(E_2)
+\]
+\end{proposition}
+
+Contrairement au cadre classique des espaces vectoriels réels préhilbertiens, la notion d'orthogonalité est ici définie de manière purement algébrique par la forme bilinéaire $\cdot$, sans recours à un produit scalaire défini positif. 
+
+\begin{definition}[Orthogonalité]
+Soit $E$ un $\mathbb{Z}$-module muni d'une forme bilinéaire symétrique entière.
+\begin{enumerate}
+    \item Deux vecteurs $x, y \in E$ sont dits \emph{orthogonaux} si $x \cdot y = 0$.
+    \item Pour tout sous-module $F \subset E$, l'\emph{orthogonal} de $F$, noté $F^\perp$, est le sous-module défini par :
+    \[
+    F^\perp = \{ x \in E \mid \forall y \in F, \, x \cdot y = 0 \}.
+    \]
+\end{enumerate}
+\end{definition}
+
+Il convient de souligner deux pathologies cruciales induites par l'absence de positivité de la forme. D'une part, un sous-module $F$ peut intersecter son orthogonal de manière non triviale ; un vecteur non nul $x$ vérifiant $x \cdot x = 0$ est dit \emph{isotrope} et appartient à son propre orthogonal. D'autre part, la décomposition en somme directe $E = F \oplus F^\perp$ n'est plus automatique. La validité de ce scindage est néanmoins restaurée par la proposition suivante, qui s'avère centrale dans les procédés de réduction par récurrence.
+
+\begin{proposition}[Scindage par unimodularité]
+Soit $E$ un $\mathbb{Z}$-module muni d'une forme bilinéaire symétrique entière et soit $F$ un sous-module de $E$. Si la restriction de la forme bilinéaire à $F$ est unimodulaire, alors le module se scinde orthogonalement :
+\[
+E = F \oplus F^\perp
+\]
+\end{proposition}
+
+\begin{definition}[Module dual]
+Le \emph{module dual} d'un $\mathbb{Z}$-module $E$, noté $E^*$, est le $\mathbb{Z}$-module $\text{Hom}_\mathbb{Z}(E, \mathbb{Z})$ des morphismes linéaires de $E$ dans $\mathbb{Z}$. Si $E$ est libre de rang $n$ de base $(e_1, \dots, e_n)$, alors $E^*$ est libre de rang $n$ et sa base duale $(e_1^*, \dots, e_n^*)$ est définie par $e_i^*(e_j) = \delta_{ij}$.
+\end{definition}
+
+\begin{definition}[Forme bilinéaire]
+Une application $\cdot : E \times E \to \mathbb{Z}$ est une \emph{forme bilinéaire entière} si elle est $\mathbb{Z}$-linéaire par rapport à chacun de ses arguments. Elle est dite \emph{symétrique} si pour tous $x, y \in E^2$, $x \cdot y = y \cdot x$. 
+\end{definition}
+
+\begin{example}
+Le module $E = \mathbb{Z}^n$ muni du produit scalaire standard $x \cdot y = \sum_{i=1}^n x_i y_i$ constitue l'exemple fondamental de $\mathbb{Z}$-module libre muni d'une forme bilinéaire symétrique entière.
+\end{example}
