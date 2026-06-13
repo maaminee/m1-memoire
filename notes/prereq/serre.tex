@@ -19,14 +19,46 @@ telle que l'application linéaire naturelle $E \to E^* := \mathrm{Hom}_\ZZ(E,\ZZ
 induite par $\varphi$ soit un isomorphisme.
 \end{definition}
 
-\begin{remark}
+\begin{proposition}
 Si $(e_i)_{1 \leq i \leq n}$ est une base de $E$ et si l'on pose
 $a_{ij} = e_i \cdot e_j$, la condition d'unimodularité est équivalente à
 $\det(a_{ij}) = \pm 1$.
 Changer de base remplace la matrice $A = (a_{ij})$ par ${}^t\!BAB$ avec
 $B \in \mathrm{GL}_n(\ZZ)$ ; deux matrices ainsi reliées définissent des formes
 dites \emph{équivalentes}.
-\end{remark}
+\end{proposition}
+
+\begin{proof}
+Fixons une base $\mathcal{B} = (e_1, \dots, e_n)$ du $\mathbb{Z}$-module libre $E$, et notons $\mathcal{B}^* = (e_1^*, \dots, e_n^*)$ sa base duale associée dans $E^*$. Soit $A \in \mathcal{M}_n(\mathbb{Z})$ la matrice représentative de la forme bilinéaire dans la base $\mathcal{B}$, dont les coefficients sont donnés par $A_{ij} = e_i \cdot e_j$. 
+
+Pour tout vecteur $x = \sum x_i e_i \in E$, identifié à son vecteur colonne $X$, l'image $\phi(x) \in E^*$ est la forme linéaire définie par $y \mapsto x \cdot y$. Matriciellement, si $Y$ est le vecteur colonne de $y$, on a :
+\[
+\phi(x)(y) = X^T A Y = (A X)^T Y
+\]
+La matrice représentative de l'application linéaire $\phi : E \to E^*$ relativement aux bases $\mathcal{B}$ et $\mathcal{B}^*$ est donc exactement la matrice symétrique $A$.
+
+Montrons le sens direct ($\implies$). 
+Supposons que $\phi$ soit un isomorphisme de $\mathbb{Z}$-modules. Il existe alors une application réciproque $\phi^{-1} : E^* \to E$ qui est également $\mathbb{Z}$-linéaire. Soit $B \in \mathcal{M}_n(\mathbb{Z})$ la matrice représentant $\phi^{-1}$ dans les bases $\mathcal{B}^*$ et $\mathcal{B}$. Par définition de l'inverse, on a la relation matricielle :
+\[
+A B = I_n
+\] En appliquant le déterminant à cette égalité de matrices à coefficients entiers, le théorème de multiplicité des déterminants donne :
+\[
+\det(A B) = \det(A) \times \det(B) = \det(I_n) = 1
+\]
+Puisque $A$ et $B$ sont à coefficients entiers, leurs déterminants $\det(A)$ et $\det(B)$ sont nécessairement des éléments de $\mathbb{Z}$. Les seuls inversibles de l'anneau $\mathbb{Z}$ étant $1$ et $-1$, on en conclut que :
+\[
+\det(A) = \pm 1
+\]
+
+Montrons le sens réciproque ($\impliedby$).
+Supposons que $\det(A) = \pm 1$. D'après la formule générale d'inversion des matrices sur un anneau commutatif, la matrice inverse $A^{-1}$ s'exprime à l'aide de la comatrice de $A$ par la formule :
+\[
+A^{-1} = \frac{1}{\det(A)} \text{Com}(A)^T
+\]
+Les coefficients de la comatrice $\text{Com}(A)$ sont des polynômes (déterminants de sous-matrices) en les coefficients de $A$. Comme $A \in \mathcal{M}_n(\mathbb{Z})$, sa comatrice est entièrement à coefficients entiers. L'hypothèse $\det(A) = \pm 1$ implique que le facteur scalaire $\frac{1}{\det(A)}$ vaut soit $1$, soit $-1$. 
+
+Par conséquent, la matrice inverse $A^{-1}$ appartient à $\mathcal{M}_n(\mathbb{Z})$. Elle définit un morphisme de $\mathbb{Z}$-modules de $E^*$ vers $E$ qui vérifie $A \times A^{-1} = I_n$ et $A^{-1} \times A = I_n$. L'application $\phi$ admet donc une réciproque linéaire, ce qui prouve qu'elle est bijective. C'est un isomorphisme de $\mathbb{Z}$-modules.
+\end{proof}
 
 Pour chaque entier naturel $n$, on note $\mathcal{S}_n$ l'ensemble des couples $(E, \cdot)$, où $E$ est un $\mathbb{Z}$-module libre de rang $n$ et $\cdot : E \times E \to \mathbb{Z}$ est une forme bilinéaire symétrique entière unimodulaire, c'est-à-dire dont le discriminant vaut $\pm 1$. Deux tels objets $(E, \cdot)$ et $(E', \cdot')$ sont dits isomorphes s'il existe un isomorphisme de $\mathbb{Z}$-modules $\phi : E \to E'$ qui préserve la forme, au sens où pour tous $x, y \in E$, on a $\phi(x) \cdot' \phi(y) = x \cdot y$. L'ensemble $\mathcal{S}_n$ est alors considéré à morphisme près (ou rigoureusement, comme l'ensemble des classes d'isomorphismes de ces structures). Enfin, on pose $\mathcal{S} = \bigcup_{n \geq 0} \mathcal{S}_n$ pour désigner la collection de toutes ces formes, indépendamment de leur rang.
 
@@ -198,7 +230,21 @@ Soient $E, E' \in \mathcal{S}$ deux formes indéfinies ayant même rang, même i
 \begin{proof}
 La démonstration procède par récurrence sur le rang $n = r(E)$ de la forme.
 
-Supposons d'abord que $E$ et $E'$ soient deux formes indéfinies de type I ayant même rang $n$ et même indice $\tau$. Si $n < 5$, le résultat découle d'une vérification directe sur les petites dimensions que nous décidons d'omettre par soucis de simplification. Supposons donc $n \geq 5$.
+Supposons d'abord que $E$ et $E'$ soient deux formes indéfinies de type I ayant même rang $n$ et même indice $\tau$.
+
+\paragraph{Cas du Type I (Formes impaires).}
+Soient $E$ et $E'$ deux formes indéfinies de type I ayant même rang $n$ et même indice $\tau$.
+\begin{itemize}
+    \item \textbf{Rang $n = 1$ :} Par définition, une forme indéfinie doit posséder au moins une valeur strictement positive et une valeur strictement négative, ce qui est structurellement impossible en rang $1$. Il n'existe donc aucune forme unimodulaire indéfinie de rang $1$.
+    
+    \item \textbf{Rang $n = 2$ :} Les invariants imposent que le rang vaut $2$ et l'indice vaut $\tau = 0$ (les formes définies $\pm I_2$ étant exclues par l'hypothèse d'indéfinition). La forme standard associée est $I_+ \oplus I_-$, dont la matrice représentative est $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$. Soit $E$ une telle forme. Puisqu'elle est indéfinie, elle contient un vecteur de norme positive et un vecteur de norme négative. Par unimodularité, on extrait un vecteur $e_1 \in E$ de norme $e_1 \cdot e_1 = 1$, ce qui scinde le module sous la forme $E = \mathbb{Z}e_1 \oplus (\mathbb{Z}e_1)^\perp$. Le supplémentaire étant de rang $1$ et de signature négative, il est isomorphe à $I_-$. On obtient ainsi l'unique classe d'isomorphisme $E \simeq I_+ \oplus I_-$.
+    
+    \item \textbf{Rangs $n = 3$ et $n = 4$ :} Le théorème de Hasse-Minkowski affirme qu'une forme quadratique rationnelle représente $0$ sur $\mathbb{Q}$ si et seulement si elle représente $0$ sur tous les complétés $p$-adiques $\mathbb{Q}_p$ et sur $\mathbb{R}$. Nos formes étant unimodulaires, leur discriminant vaut $\pm 1$. Or, toute forme unimodulaire de rang $n \ge 3$ qui est indéfinie sur $\mathbb{R}$ représente $0$ sur tous les corps locaux $\mathbb{Q}_p$ (le discriminant n'étant pas divisible par $p$).
+    
+    Par le principe local-global, la forme rationnelle associée $E \otimes_\mathbb{Z} \mathbb{Q}$ possède donc un vecteur isotrope rationnel non nul. Quitte à chasser les dénominateurs et à diviser par le pgcd de ses coordonnées, on obtient un vecteur primitif $x \in E$ tel que $x \cdot x = 0$. 
+\end{itemize}
+
+Les autres cas seront admis par soucis de simplifications, supposons désormais $n \geq 5$.
 
 Le théorème de Meyer s'applique car la forme est entière, unimodulaire, indéfinie et de rang supérieur ou égal à $5$. Il garantit l'existence d'un vecteur non nul $x_0 \in E$ tel que $x_0 \cdot x_0 = 0$. Soit $d$ le plus grand commun diviseur des coordonnées de $x_0$ dans une base de $E$. Le vecteur $x = \frac{1}{d}x_0$ appartient à $E$, il est non nul, primitif (ses coordonnées sont globales premières entre elles), et vérifie encore :
 \[
@@ -219,16 +265,19 @@ Nous cherchons maintenant à construire un vecteur $z \in E$ de norme $1$ ou $-1
     z \cdot z = (2k + 1) - 2k(1) + k^2(0) = 1.
     \]
     Le vecteur $z$ convient.
+
+    \item Si $y \cdot y$ est un entier pair, la construction directe avec $y$ échoue. C'est ici que l'hypothèse de type I intervient : il existe par définition un vecteur $w \in E$ de norme $w \cdot w$ impaire. Posons $m = x \cdot w \in \mathbb{Z}$ et définissons le vecteur modifié $w' = w - my$. Par construction, ce vecteur est orthogonal à $x$ car :
+    \[
+    x \cdot w' = x \cdot w - m(x \cdot y) = m - m(1) = 0.
+    \]
+    De plus, sa norme $w' \cdot w' = w \cdot w - 2m(y \cdot w) + m^2(y \cdot y)$ reste un entier impair, puisque $w \cdot w$ est impair et que les autres termes sont manifestement pairs (du fait du facteur $2$ et de la parité de $y \cdot y$).
     
-    \item Si $y \cdot y$ est un entier pair, la construction précédente échoue. C'est ici que l'hypothèse de type I intervient : par définition, il existe au moins un vecteur $w \in E$ dont la norme $w \cdot w$ est un entier impair. Posons $m = x \cdot w \in \mathbb{Z}$. Définissons un nouveau vecteur $y' = y + w - (m + \frac{y \cdot y}{2})x$. Calculons le produit scalaire $x \cdot y'$ :
-    \[
-    x \cdot y' = x \cdot y + x \cdot w - \left(m + \frac{y \cdot y}{2}\right)(x \cdot x) = 1 + m - 0 = 1 + m.
-    \]
-    Calculons maintenant la norme de $y'$ modulo $2$. Puisque $x \cdot x = 0$ et $y \cdot y \equiv 0 \pmod 2$, le terme en $x$ ne contribue pas à la parité de la norme. On a donc :
-    \[
-    y' \cdot y' \equiv y \cdot y + w \cdot w + 2(y \cdot w) \pmod 2.
-    \]
-    Comme $y \cdot y$ est pair et $2(y \cdot w)$ est pair, il reste $y' \cdot y' \equiv w \cdot w \pmod 2$. Or $w \cdot w$ est impair, donc $y' \cdot y'$ est un entier impair. Nous sommes ainsi ramenés au cas précédent : en remplaçant le couple $(x,y)$ par un couple modifié basé sur $(x, y')$, on sait construire un vecteur $z \in E$ tel que $z \cdot z = 1$ (ou $-1$ si l'on avait inversé le signe global de la forme).
+    Définissons alors le nouveau partenaire $y'' = y + w'$. Vérifions qu'il remplit les conditions requises :
+    \begin{enumerate}
+        \item Son produit croisé avec $x$ vaut : $x \cdot y'' = x \cdot y + x \cdot w' = 1 + 0 = 1$.
+        \item Sa norme vaut : $y'' \cdot y'' = y \cdot y + 2(y \cdot w') + w' \cdot w'$. Comme $y \cdot y$ et $2(y \cdot w')$ sont pairs, et que $w' \cdot w'$ est impair, la somme $y'' \cdot y''$ est un entier impair.
+    \end{enumerate}
+    Nous sommes ainsi parfaitement ramenés au premier cas : il existe un entier $k \in \mathbb{Z}$ tel que $y'' \cdot y'' = 2k + 1$. Le vecteur $z = y'' - kx$ appartient à $E$ et vérifie rigoureusement $z \cdot z = 1$.
 \end{itemize}
 
 Une fois ce vecteur $z$ obtenu, l'application linéaire $\phi_z : E \to \mathbb{Z}, \, v \mapsto z \cdot v$ est surjective car $\phi_z(z) = 1$. Le module $E$ se scinde alors de manière interne en la somme directe de la droite $\mathbb{Z}z$ et de son noyau, qui n'est autre que l'orthogonal $(\mathbb{Z}z)^\perp$ :
@@ -275,13 +324,6 @@ E \simeq sI_+ \oplus tI_-
 où $s = \frac{r(E)+\tau(E)}{2}$ et $t = \frac{r(E)-\tau(E)}{2}$.
 \end{corollary}
 
-% ============================================================
-% PLACE POUR LA PREUVE DU CAS TYPE I (Tricky ou simple vérification des invariants)
-% ============================================================
-% \begin{proof}
-% Il suffit de vérifier que la forme stable $sI_+ \oplus tI_-$ est bien indéfinie, de type I, et possède un rang et un indice identiques à ceux de $E$. Le Théorème \ref{thm:class_indef} conclut immédiatement à l'isomorphisme.
-% \end{proof}
-% ============================================================
 
 \begin{corollary}[Serre {\cite{Serre1962}}]
 \label{thm:indefII}
@@ -292,16 +334,6 @@ E \simeq pU \oplus q (\text{sgn}(\tau(E))E_8)
 où $q = \frac{|\tau(E)|}{8}$ et $p = \frac{r(E) - |\tau(E)|}{2}$, avec la convention $0E_8 = 0$.
 \end{corollary}
 
-% ============================================================
-% PLACE POUR LA PREUVE DU CAS TYPE II (VERSION UNIFIÉE)
-% ============================================================
-% \begin{proof}
-% Un calcul direct montre que le membre de droite est une forme indéfinie (car $p \geq 1$ dès lors que la forme est indéfinie) et de type II (comme somme directe de formes de type II). 
-% Son rang vaut $2p + 8q = (r(E) - |\tau(E)|) + |\tau(E)| = r(E)$. 
-% Son indice vaut $\text{sgn}(\tau(E)) \cdot 8q = \tau(E)$.
-% L'unicité découlant du Théorème \ref{thm:class_indef} permet d'en déduire immédiatement l'isomorphisme.
-% \end{proof}
-% ============================================================
 
 
 \paragraph{Cas défini.}

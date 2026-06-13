@@ -1,7 +1,9 @@
 \section{Forme d'intersection}
-%==============================================================================
 
-Fixons $X$ une 4-variété \emph{lisse}.
+\subsection{Première approche : Une définition géométrique}
+Avant de formaliser la forme d'intersection par le biais du cup-produit sur les classes de cohomologie, il est remarquable d'en donner l'approche géométrique historique. Cette formulation, restreinte aux variétés lisses, repose sur l'intersection transversale de sous-variétés et fournit l'intuition visuelle essentielle pour comprendre les invariants de dimension $4$.
+
+Dans toute cette section, $M$ désigne une variété différentielle fermée, compacte, orientée de dimension $4$.
 
 \begin{definition}[Classe homologique d'un plongement]
 Pour une surface fermée orientée lisse $\Sigma$ plongée dans $X$, on notera \emph{par abus de notation} $[\Sigma] \in H_2(X;\ZZ)$ la classe d'homologie correspondante, image de la classe fondamentale $[\Sigma] \in H_2(\Sigma;\ZZ)$ par le morphisme induit par le plongement.
@@ -38,7 +40,7 @@ En choisissant l'orientation adéquate sur $W$ (celle induite par l'orientation 
 
 
 
-\subsection{Transversalité}
+\subsubsection{Transversalité}
 
 \begin{definition}[Transversalité de deux sous-variétés]
 Soient $M^m$ et $N^n$ deux sous-variétés lisses d'une variété ambiante $X^k$ (avec $m, n \leq k$). On dit que $M$ et $N$ sont \textbf{transverses} en $p \in M \cap N$ si
@@ -102,9 +104,63 @@ La \textbf{forme d'intersection} de $X$ est l'application
 .
 \end{definition}
 
+
+
+
+\subsection{Définition homologique classique}
+
+Bien que l'approche par intersection transversale de sous-variétés lisses soit la plus intuitive, elle restreint la définition aux variétés munies d'une structure différentielle. Pour étendre cet invariant aux variétés topologiques quelconques (cadre indispensable pour appréhender les théorèmes de Freedman), il est nécessaire de formaliser la forme d'intersection directement sur les classes d'homologie singulière $H_2(M)$.
+
+Dans toute cette sous-section, $M$ désigne une variété topologique fermée, compacte et orientée de dimension $4$, et $[M] \in H_4(M)$ désigne sa classe fondamentale d'orientation.
+
+La définition purement homologique repose sur l'utilisation combinée du crochet de dualité et de l'isomorphisme de Poincaré. Rappelons que le cap-produit par la classe fondamentale induit un isomorphisme de $\mathbb{Z}$-modules :
+\[
+D : H^2(M) \longrightarrow H_2(M), \quad \alpha \mapsto [M] \frown \alpha
+\]
+
+Puisque cet opérateur est bijectif, on peut inverser cette correspondance. À chaque classe d'homologie de dimension deux $a \in H_2(M)$, on associe de manière unique sa classe de cohomologie duale de Poincaré, notée $D^{-1}(a) \in H^2(M)$.
+
+Nous pouvons désormais poser la définition algébrique classique sur le second groupe d'homologie, libre de toute considération différentielle.
+
+\begin{definition}[Forme d'intersection homologique]
+Soit $M$ une variété topologique fermée, orientée de dimension $4$. On appelle \emph{forme d'intersection} de $M$ l'application bilinéaire symétrique entière notée $Q_M$ et définie par :
+\[
+Q_M : H_2(M)/\text{Tor} \times H_2(M)/\text{Tor} \longrightarrow \mathbb{Z}
+\]
+\[
+Q_M(a, b) = \langle D^{-1}(a) \smile D^{-1}(b), [M] \rangle
+\]
+où $\smile$ est le cup-produit sur $H^2(M)$ et $\langle \cdot, \cdot \rangle$ désigne le crochet d'évaluation sur la classe fondamentale.
+\end{definition}
+
+Le quotient par le sous-module de torsion $\text{Tor}$ est rigoureusement requis ici : si un élément $a$ est de torsion (c'est-à-dire qu'il existe $k \in \mathbb{Z}^*$ tel que $k a = 0$), son produit avec n'importe quelle classe donnerait $0$ par linéarité, ce qui rendrait la forme dégénérée. Le quotient $H_2(M)/\text{Tor}$ est un $\mathbb{Z}$-module libre de rang fini, ce qui permet d'adopter des notations matricielles.
+
+
+Cette formulation permet de démontrer de manière purement algébrique les propriétés fondamentales du réseau associé à la variété :
+
+\begin{proposition}[Propriétés de structure]
+La forme d'intersection $Q_M$ définie sur $H_2(M)/\text{Tor} \simeq \mathbb{Z}^r$ vérifie :
+\begin{enumerate}
+    \item \textbf{Symétrie :} Pour tout $a, b \in H_2(M)/\text{Tor}$, $Q_M(a, b) = Q_M(b, a)$. Cela découle immédiatement de la graduée-commutativité du cup-produit : pour deux classes de degré $2$, on a $D^{-1}(a) \smile D^{-1}(b) = (-1)^{2 \times 2} D^{-1}(b) \smile D^{-1}(a) = D^{-1}(b) \smile D^{-1}(a)$.
+    \item \textbf{Unimodularité :} L'application d'adjointement $\phi : H_2(M)/\text{Tor} \to (H_2(M)/\text{Tor})^*$ induite par $Q_M$ est un isomorphisme de $\mathbb{Z}$-modules. Cela garantit que la matrice représentant $Q_M$ dans n'importe quelle base possède un déterminant égal à $\pm 1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}[Lien avec le cap-produit]
+En utilisant la relation d'adjonction fondamentale liant le cup-produit et le cap-produit, l'expression de la forme d'intersection peut se réécrire sous une forme plus compacte ne faisant intervenir qu'une seule dualité :
+\[
+Q_M(a, b) = \langle D^{-1}(a), [M] \frown D^{-1}(b) \rangle = \langle D^{-1}(a), b \rangle
+\]
+Cette écriture montre que calculer la forme d'intersection de deux cycles $a$ et $b$ revient exactement à évaluer la classe de cochaînes duale de $a$ sur le cycle homologique $b$.
+\end{remark}
+
+
+
+Par la suite, on proposera néanmoins de poursuivre avec la définition géométrique étant plus intuitive. Cette section comporte quelques propriétés intéressantes concernant la forme d'intersection qui nous permettront ensuite de faire le lien avec les résultats de classifications énoncés plus tôt dans le mémoire.
+
 \subsection{Propriétés}
 
-\begin{proposition}[Symétrie de $Q_X$]
+\begin{proposition}[$Q_X$ est symétrique]
 \label{prop:sym}
 Pour toutes $\alpha, \beta \in H_2(X;\ZZ)$ :
 \[
@@ -129,7 +185,7 @@ Ainsi $\varepsilon_p(\Sigma_\alpha, \Sigma_\beta) = \varepsilon_p(\Sigma_\beta, 
 Pour des variétés de dimension congrues à $2 \pmod 4$, la forme d'intersection est \emph{antisymétrique}. La symétrie ici est propre à la dimension 4.
 \end{remark}
 
-\begin{proposition}[Bilinéarité de $Q_X$]
+\begin{proposition}
 \label{prop:bilinear}
 La forme $Q_X$ est bilinéaire.
 \end{proposition}
@@ -188,7 +244,8 @@ L'additivité du nombre algébrique sur les unions disjointes donne alors
 \]
 
 
-\textbf{Homogénéité}
+\textbf{Homogénéité.}
+
 Soit $\lambda \in \mathbb{Z}$ et $\alpha, \beta \in H_2(M;\mathbb{Z})$.
 Un représentant de $\lambda \alpha$ est $|\lambda|$ copies de $\Sigma_\alpha$,
 avec orientation renversée si $\lambda < 0$. Par additivité du nombre algébrique
@@ -200,7 +257,7 @@ d'intersections sur les réunions disjointes,
   \;=\; \lambda\, Q(\alpha, \beta). \qedhere
 \]
 
-\textbf{Linéarité en la seconde variable.} découle de la symétrie, voir Proposition~\ref{prop:sym}.
+La linéarité en la seconde variable découle, elle, de la symétrie, voir Proposition~\ref{prop:sym}.
 \end{proof}
 
 \begin{definition}[Forme unimodulaire]

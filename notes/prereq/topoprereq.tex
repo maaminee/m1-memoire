@@ -1,11 +1,212 @@
-\subsection{Somme connexe}
+\subsection{Homologie et cohomologie singulière}
+
+L'objectif de cette sous-section est de construire rigoureusement les groupes d'homologie et de cohomologie singulière à coefficients entiers, qui permettent d'associer des invariants algébriques (des $\mathbb{Z}$-modules) à un espace topologique.
+
+On commence par définir les objets géométriques de base : les simplexes, qui généralisent les notions de triangle ou de tétraèdre en toute dimension.
+
+\begin{definition}[$k$-simplexe standard]
+Pour tout entier $k \geq 0$, le \emph{$k$-simplexe standard}, noté $\Delta^k$, est le sous-ensemble convexe de $\mathbb{R}^{k+1}$ défini par :
+\[
+\Delta^k = \left\{ (t_0, \dots, t_k) \in \mathbb{R}^{k+1} \ \middle|\  \sum_{i=0}^k t_i = 1 \text{ et } t_i \geq 0 \text{ pour tout } i \right\}\]
+\end{definition}
+
+Pour transposer cela sur un espace topologique quelconque, on regarde toutes les façons possibles d'envoyer ce simplexe standard de manière continue dans l'espace.
+
+\begin{definition}[Chaînes singulières]
+Soit $X$ un espace topologique. 
+\begin{enumerate}
+    \item Un \emph{$k$-simplexe singulier} de $X$ est une application continue $\sigma : \Delta^k \to X$.
+    \item On note $C_k(X)$ le $\mathbb{Z}$-module libre engendré par l'ensemble de tous les $k$-simplexes singuliers de $X$. Un élément de $C_k(X)$ est appelé une \emph{$k$-chaîne singulière} et s'écrit comme une combinaison linéaire finie à coefficients entiers : $\sum n_i \sigma_i$.
+\end{enumerate}
+\end{definition}
+
+Pour relier ces modules entre eux, on définit une application linéaire qui prend un simplexe et renvoie sa frontière géométrique (ses faces).
+
+\begin{definition}[Opérateur de bord]
+Pour tout $i \in \{0, \dots, k\}$, on note $\partial^i : \Delta^{k-1} \to \Delta^k$ l'inclusion de la $i$-ème face du simplexe standard. L'\_opérateur de bord\_ est l'application $\mathbb{Z}$-linéaire $\partial_k : C_k(X) \to C_{k-1}(X)$ définie sur chaque générateur $\sigma$ par :
+\[
+\partial_k(\sigma) = \sum_{i=0}^k (-1)^i (\sigma \circ \partial^i)
+\]
+\end{definition}
+
+Le signe alterné $(-1)^i$ est crucial : c'est lui qui permet d'obtenir la propriété algébrique fondamentale suivante, qui traduit le fait géométrique qu'« un bord n'a pas de bord ».
+
+\begin{lemma}
+Pour tout $k \geq 1$, la composition de deux opérateurs de bord successifs est nulle :
+\[
+\partial_{k-1} \circ \partial_k = 0
+\]
+\end{lemma}
+
+Cette propriété garantit que l'image de $\partial_{k+1}$ est entièrement contenue dans le noyau de $\partial_k$. On peut donc définir le groupe quotient.
+
+\begin{definition}[Groupes d'homologie]
+On considère le complexe de chaînes $(C_*(X), \partial)$.
+\begin{enumerate}
+    \item Le sous-module des \emph{$k$-cycles} est $Z_k(X) = \text{Ker}(\partial_k)$.
+    \item Le sous-module des \emph{$k$-bords} est $B_k(X) = \text{Im}(\partial_{k+1})$.
+    \item Le \emph{$k$-ième groupe d'homologie singulière} de $X$ à coefficients entiers est le $\mathbb{Z}$-module quotient :
+    \[
+    H_k(X) = Z_k(X) / B_k(X)
+    \]
+\end{enumerate}
+\end{definition}
+
+
+La cohomologie est la structure duale de l'homologie. On l'obtient en appliquant le foncteur $\text{Hom}_\mathbb{Z}(\cdot, \mathbb{Z})$ à nos modules de chaînes.
+
+\begin{definition}[Cochaînes singulières]
+Le $\mathbb{Z}$-module des \emph{$k$-cochaînes singulières} de $X$, noté $C^k(X)$, est le module dual de $C_k(X)$ :
+\[
+C^k(X) = \text{Hom}_\mathbb{Z}(C_k(X), \mathbb{Z})
+\]
+Un élément $\phi \in C^k(X)$ est une application linéaire qui associe un entier à chaque $k$-chaîne.
+\end{definition}
+
+Par dualité, l'opérateur de bord $\partial$ induit une application linéaire dans le sens inverse, appelée opérateur de cobord.
+
+\begin{definition}[Opérateur de cobord]
+L'opérateur de cobord est l'application linéaire $\delta^k : C^k(X) \to C^{k+1}(X)$ définie par dualité pour toute cochaîne $\phi \in C^k(X)$ et toute chaîne $c \in C_{k+1}(X)$ par :
+\[
+(\delta^k \phi)(c) = \phi(\partial_{k+1} c)
+\]
+\end{definition}
+
+Du fait que $\partial \circ \partial = 0$, on obtient immédiatement par dualité que $\delta^{k+1} \circ \delta^k = 0$. On peut à nouveau passer au quotient.
+
+\begin{definition}[Groupes d'cohomologie]
+On considère le complexe de cochaînes $(C^*(X), \delta)$.
+\begin{enumerate}
+    \item Le sous-module des \emph{$k$-cocycles} est $Z^k(X) = \text{Ker}(\delta^k)$.
+    \item Le sous-module des \emph{$k$-cobords} est $B^k(X) = \text{Im}(\delta^{k-1})$.
+    \item Le \emph{$k$-ième groupe de cohomologie singulière} de $X$ à coefficients entiers est le $\mathbb{Z}$-module quotient :
+    \[
+    H^k(X) = Z^k(X) / B^k(X)
+    \]
+\end{enumerate}
+\end{definition}
+
+Alors que l'homologie ne possède pas de produit naturel entre ses classes, la cohomologie singulière peut être munie d'une structure d'anneau commutatif gradué grâce au cup-produit. Géométriquement, cette opération généralise le produit extérieur des formes différentielles.
+
+Pour définir cette opération au niveau des cochaînes, nous introduisons les applications d'inclusion des faces avant et arrière d'un simplexe. Pour un $k$-simplexe standard $\Delta^k$ de sommets $(v_0, \dots, v_k)$, on note $\lambda_p : \Delta^p \to \Delta^{p+q}$ le $p$-simplexe sous-tendu par les sommets $(v_0, \dots, v_p)$ et $\rho_q : \Delta^q \to \Delta^{p+q}$ le $q$-simplexe sous-tendu par les sommets $(v_p, \dots, v_{p+q})$.
+
+\begin{definition}[Cup-produit au niveau des cochaînes]
+Soient $\phi \in C^p(X)$ et $\psi \in C^q(X)$ deux cochaînes singulières. Le \emph{cup-produit} $\phi \smile \psi \in C^{p+q}(X)$ est la $(p+q)$-cochaîne définie pour tout $(p+q)$-simplexe singulier $\sigma : \Delta^{p+q} \to X$ par :
+\[
+(\phi \smile \psi)(\sigma) = \phi(\sigma \circ \lambda_p) \cdot \psi(\sigma \circ \rho_q)
+\]
+où le produit au membre de droite est la multiplication usuelle dans $\mathbb{Z}$.
+\end{definition}
+
+La compatibilité de cette opération avec l'opérateur de cobord $\delta$ est gouvernée par la règle de Leibniz graduée :
+
+\begin{lemma}[Formule de Leibniz]
+Pour tout $\phi \in C^p(X)$ et $\psi \in C^q(X)$, on a :
+\[
+\delta^{p+q}(\phi \smile \psi) = (\delta^p \phi) \smile \psi + (-1)^p \, \phi \smile (\delta^q \psi)
+\]
+\end{lemma}
+
+Cette formule fondamentale montre que le cup-produit de deux cocycles est un cocycle, et que le cup-produit d'un cocycle et d'un cobord est un cobord. Par conséquent, l'opération passe au quotient et induit une application bilinéaire bien définie sur les classes de cohomologie.
+
+\begin{definition}[Cup-produit en cohomologie]
+Le cup-produit induit une application bilinéaire :
+\[
+\smile : H^p(X) \times H^q(X) \longrightarrow H^{p+q}(X)
+\]
+qui munit le module de cohomologie totale $H^*(X) = \bigoplus_{k \geq 0} H^k(X)$ d'une structure de $\mathbb{Z}$-algèbre associative unitaire.
+\end{definition}
+
+\begin{proposition}[Propriétés du cup-produit]
+L'anneau de cohomologie $(H^*(X), \smile)$ vérifie les propriétés suivantes :
+\begin{enumerate}
+    \item \textbf{Graduée-commutativité :} Pour toutes classes $\alpha \in H^p(X)$ et $\beta \in H^q(X)$ :
+    \[
+    \alpha \smile \beta = (-1)^{pq} \, (\beta \smile \alpha)
+    \]
+    \item \textbf{Naturalité (Fonctorialité) :} Pour toute application continue $f : X \to Y$, le morphisme induit $f^* : H^*(Y) \to H^*(X)$ est un morphisme d'anneaux. C'est-à-dire que pour tout $\alpha, \beta \in H^*(Y)$ :
+    \[
+    f^*(\alpha \smile \beta) = f^*(\alpha) \smile f^*(\beta)\]
+    \end{enumerate}
+\end{proposition}
+
+\paragraph{Le Cap-Produit.}
+
+Le cap-produit est une opération duale qui permet de faire agir la cohomologie sur l'homologie, en faisant "décroître" le degré des chaînes.
+
+\begin{definition}[Cap-produit au niveau des chaînes]
+Soit $\sigma : \Delta^k \to X$ un $k$-simplexe singulier et soit $\phi \in C^p(X)$ une $p$-cochaîne avec $0 \leq p \leq k$. Le \emph{cap-produit} $\sigma \frown \phi \in C_{k-p}(X)$ est la $(k-p)$-chaîne définie par :
+\[
+\sigma \frown \phi = \phi(\sigma \circ \lambda_p) \cdot (\sigma \circ \rho_{k-p})
+\]
+où $\lambda_p : \Delta^p \to \Delta^k$ sélectionne les $p$ premiers sommets et $\rho_{k-p} : \Delta^{k-p} \to \Delta^k$ sélectionne les $k-p$ derniers sommets. Par linéarité, cette opération s'étend en une application bilinéaire $\frown : C_k(X) \times C^p(X) \to C_{k-p}(X)$.
+\end{definition}
+
+Comme pour le cup-produit, il existe une formule de compatibilité avec les opérateurs de bord et de cobord ($\partial(c \frown \phi) = (-1)^p (\partial c \frown \phi - c \frown \delta \phi)$), ce qui permet de descendre l'opération aux quotients homologiques.
+
+\begin{definition}[Cap-produit en homologie/cohomologie]
+Le cap-produit induit une application bilinéaire bien définie :
+\[
+\frown : H_k(X) \times H^p(X) \longrightarrow H_{k-p}(X)
+\]
+\end{definition}
+
+
+\paragraph{Le crochet de dualité.}
+
+Pour lier formellement les concepts d'homologie et de cohomologie, il est nécessaire d'expliciter l'opération d'évaluation. Par définition, une $k$-cochaîne $\phi \in C^k(X)$ est une application linéaire de $C_k(X)$ dans $\mathbb{Z}$. 
+
+\begin{definition}[Crochet d'évaluation]
+On appelle \emph{crochet de dualité} (ou d'évaluation) l'application bilinéaire canonique :
+\[
+\langle \cdot, \cdot \rangle : C^k(X) \times C_k(X) \longrightarrow \mathbb{Z}
+\]
+\[
+\langle \phi, c \rangle = \phi(c)
+\]
+\end{definition}
+
+Cette évaluation passe naturellement au quotient pour les classes d'homologie et de cohomologie. En effet, si $\phi \in Z^k(X)$ est un cocycle ($\delta\phi = 0$) et $c \in B_k(X)$ est un bord ($c = \partial b$), la définition de l'opérateur de cobord donne immédiatement :
+\[
+\langle \phi, \partial b \rangle = (\delta \phi)(b) = 0(b) = 0
+\]
+De même, si $\phi \in B^k(X)$ est un cobord ($\phi = \delta \psi$) et $c \in Z_k(X)$ est un cycle ($\partial c = 0$), on a :
+\[
+\langle \delta \psi, c \rangle = \psi(\partial c) = \psi(0) = 0
+\]
+Le crochet induit donc une application bilinéaire parfaitement définie sur les groupes de sous-modules quotients :
+\[
+\langle \cdot, \cdot \rangle : H^k(X) \times H_k(X) \longrightarrow \mathbb{Z}
+\]
+
+\paragraph{La classe fondamentale d'orientation.}
+
+Pour les variétés topologiques compactes, l'orientation ne se définit pas avec des formes différentielles (qui requièrent une structure lisse), mais de manière purement topologique via l'homologie locale. 
+
+Soit $M$ une variété topologique de dimension $n$. Pour tout point $x \in M$, l'excision montre que le groupe d'homologie locale $H_n(M, M \setminus \{x\})$ est canoniquement isomorphe à $H_n(\mathbb{R}^n, \mathbb{R}^n \setminus \{0\}) \simeq \mathbb{Z}$. Une orientation locale de $M$ en $x$ consiste à choisir l'un des deux générateurs de ce groupe $\mathbb{Z}$. Pour globaliser cette notion à toute la variété, on utilise l'homologie globale.
+
+\begin{theorem}[Existence de la classe fondamentale]
+Soit $M$ une variété topologique compacte, sans bord (fermée) de dimension $n$.
+\begin{enumerate}
+    \item La variété $M$ est orientable si et seulement si le $n$-ième groupe d'homologie singulière globale est un $\mathbb{Z}$-module libre de rang $1$ :
+    \[
+    H_n(M) \simeq \mathbb{Z}
+    \]
+    \item Le choix d'une orientation globale de $M$ correspond exactement à la sélection de l'un des deux générateurs de $H_n(M)$. Ce générateur privilégié est noté $[M]$ et est appelé la \emph{classe fondamentale d'orientation} de $M$.
+\end{enumerate}
+\end{theorem}
+
+Cette classe fondamentale $[M] \in H_n(M)$ joue un rôle crucial : elle représente géométriquement l'« intégration globale » sur toute la variété. C'est elle qui va nous permettre de coupler la dualité de Poincaré avec le cup-produit afin d'obtenir la forme d'intersection.
+\newpage
+
+Pour la suite, nous aurons besoin d'utiliser une notion topologique qui nous servira qu'est la somme connexe, ce qui motive sa définition ci-contre.
 
 \begin{definition}[Somme connexe]
-Soient $X$ et $Y$ deux $n$-variétés lisses. Soient $B_X \subset X$ et $B_Y \subset Y$ des boules ouvertes plongées de façon compatible avec l'orientation. On définit la \textbf{somme connexe} de $X$ et $Y$ par
+Soient $A$ et $B$ deux $n$-variétés lisses. Soient $B_A \subset A$ et $B_B \subset B$ des boules ouvertes plongées de façon compatible avec l'orientation. On définit la \textbf{somme connexe} de $A$ et $B$ par
 \[
-X \# Y \;=\;  (X \setminus B_X) \cup_{\varphi} (Y \setminus B_Y) \;=\; \bigl(X \setminus B_X\bigr) \sqcup \bigl(Y \setminus B_Y\bigr) \big/ \sim
+A \# B \;=\;  (A \setminus B_A) \cup_{\varphi} (B \setminus B_B) \;=\; \bigl(A \setminus B_A\bigr) \sqcup \bigl(B \setminus B_B\bigr) \big/ \sim
 \]
-où $\sim$ identifie chaque point $x \in \partial \overline{B_X}$ avec $\varphi(x) \in \partial \overline{B_Y}$, et $\varphi : \partial \overline{B_X} \xrightarrow{\;\sim\;} \partial \overline{B_Y}$ est un difféomorphisme \emph{renversant l'orientation} (de sorte que les orientations de $X\setminus B_X$ et $Y \setminus B_Y$ induisent une orientation cohérente sur $X\#Y$).
+où $\sim$ identifie chaque point $x \in \partial \overline{B_A}$ avec $\varphi(x) \in \partial \overline{B_B}$, et $\varphi : \partial \overline{B_A} \xrightarrow{\;\sim\;} \partial \overline{B_B}$ est un difféomorphisme \emph{renversant l'orientation} (de sorte que les orientations de $A\setminus B_B$ et $A \setminus B_B$ induisent une orientation cohérente sur $A\#B$).
 \end{definition}
 
 \begin{figure}[h]
@@ -14,8 +215,6 @@ où $\sim$ identifie chaque point $x \in \partial \overline{B_X}$ avec $\varphi(
   \caption{Somme connexe de deux variétés}
   \label{fig:somme-connexe}
 \end{figure}
-
-\subsubsection*{Homologie de la somme connexe}
 
 \begin{proposition}
 Soient $X$ et $Y$ deux $n$-variétés lisses. On a un isomorphisme
