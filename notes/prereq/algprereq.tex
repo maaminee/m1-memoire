@@ -41,6 +41,15 @@ r(E_1 \oplus E_2) = r(E_1) + r(E_2)
 
 Contrairement au cadre classique des espaces vectoriels réels préhilbertiens, la notion d'orthogonalité est ici définie de manière purement algébrique par la forme bilinéaire $\cdot$, sans recours à un produit scalaire défini positif. 
 
+
+\begin{definition}[Forme bilinéaire]
+Une application $\cdot : E \times E \to \mathbb{Z}$ est une \emph{forme bilinéaire entière} si elle est $\mathbb{Z}$-linéaire par rapport à chacun de ses arguments. Elle est dite \emph{symétrique} si pour tous $x, y \in E^2$, $x \cdot y = y \cdot x$. 
+\end{definition}
+
+\begin{definition}[Forme unimodulaire]
+Soit $M$ un $\mathbb{Z}$-module libre de rang fini. Une forme bilinéaire symétrique $Q : M \times M \to \mathbb{Z}$ est dite \textbf{unimodulaire} si la matrice $(Q(e_i, e_j))_{1 \le i, j \le n}$ représentant $Q$ dans une base $(e_i)_{1 \le i \le n}$ de $M$ est inversible sur $\mathbb{Z}$, c'est-à-dire si son déterminant vaut $\pm 1$.
+\end{definition}
+
 \begin{definition}[Orthogonalité]
 Soit $E$ un $\mathbb{Z}$-module muni d'une forme bilinéaire symétrique entière.
 \begin{enumerate}
@@ -65,9 +74,7 @@ E = F \oplus F^\perp
 Le \emph{module dual} d'un $\mathbb{Z}$-module $E$, noté $E^*$, est le $\mathbb{Z}$-module $\text{Hom}_\mathbb{Z}(E, \mathbb{Z})$ des morphismes linéaires de $E$ dans $\mathbb{Z}$. Si $E$ est libre de rang $n$ de base $(e_1, \dots, e_n)$, alors $E^*$ est libre de rang $n$ et sa base duale $(e_1^*, \dots, e_n^*)$ est définie par $e_i^*(e_j) = \delta_{ij}$.
 \end{definition}
 
-\begin{definition}[Forme bilinéaire]
-Une application $\cdot : E \times E \to \mathbb{Z}$ est une \emph{forme bilinéaire entière} si elle est $\mathbb{Z}$-linéaire par rapport à chacun de ses arguments. Elle est dite \emph{symétrique} si pour tous $x, y \in E^2$, $x \cdot y = y \cdot x$. 
-\end{definition}
+
 
 \begin{example}
 Le module $E = \mathbb{Z}^n$ muni du produit scalaire standard $x \cdot y = \sum_{i=1}^n x_i y_i$ constitue l'exemple fondamental de $\mathbb{Z}$-module libre muni d'une forme bilinéaire symétrique entière.

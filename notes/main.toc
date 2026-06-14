@@ -1,0 +1,40 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{Introduction}{2}{section*.2}%
+\contentsline {section}{\numberline {1}Rappels et prérequis}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Rappels d'algèbre linéaire et théorie des modules}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Formes bilinéaires symétriques entières à discriminant $\pm 1$}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Définitions}{4}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Invariants}{5}{subsubsection.1.2.2}%
+\contentsline {paragraph}{Rang et Signature.}{6}{section*.3}%
+\contentsline {paragraph}{Type et Parité.}{6}{section*.4}%
+\contentsline {paragraph}{L'invariant de caractéristique $\sigma (E)$.}{6}{section*.5}%
+\contentsline {paragraph}{Additivité des Invariants.}{7}{section*.6}%
+\contentsline {subsubsection}{\numberline {1.2.3}Exemples fondamentaux}{7}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}La congruence modulo $8$}{8}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Théorèmes de classification}{8}{subsubsection.1.2.5}%
+\contentsline {paragraph}{Cas du Type I (Formes impaires).}{8}{section*.7}%
+\contentsline {paragraph}{Cas défini.}{11}{section*.8}%
+\contentsline {subsection}{\numberline {1.3}Homologie et cohomologie singulière}{11}{subsection.1.3}%
+\contentsline {paragraph}{Le Cap-Produit.}{14}{section*.9}%
+\contentsline {paragraph}{Le crochet de dualité.}{14}{section*.10}%
+\contentsline {paragraph}{La classe fondamentale d'orientation.}{15}{section*.11}%
+\contentsline {section}{\numberline {2}Forme d'intersection}{18}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Première approche : Une définition géométrique}{18}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Transversalité}{18}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Définition homologique classique}{20}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Propriétés}{21}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Exemples}{23}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Invariants topologiques via la forme d'intersection}{24}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Rang et nombres de Betti}{24}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Signature}{24}{subsubsection.2.5.2}%
+\contentsline {section}{\numberline {3}Réalisabilité géométrique des formes d'intersection}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Le cas indéfini : l'apport du théorème de Serre}{25}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Le cas défini : la barrière de l'explosion algébrique}{25}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Théorèmes importants}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Rokhlin(1952)}{25}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Donaldson(1983)}{26}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Freedman(1982)}{27}{subsection.4.3}%
+\contentsline {section}{\numberline {5}La forme quadratique $E_8$ : un exemple fondamental}{28}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Définition et premières propriétés}{28}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Non-diagonalisabilité sur $\mathbb {Z}$}{28}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Réalisation comme forme d'intersection}{29}{subsection.5.3}%

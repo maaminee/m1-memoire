@@ -260,10 +260,6 @@ d'intersections sur les réunions disjointes,
 La linéarité en la seconde variable découle, elle, de la symétrie, voir Proposition~\ref{prop:sym}.
 \end{proof}
 
-\begin{definition}[Forme unimodulaire]
-Une forme bilinéaire symétrique $Q : \ZZ^n \times \ZZ^n \to \ZZ$ est dite \textbf{unimodulaire} si la matrice $(Q(e_i,e_j))$ représentant $Q$ dans une base $(e_i)$ de $\ZZ^n$ a déterminant $\pm 1$, i.e., est inversible sur $\ZZ$.
-\end{definition}
-
 \begin{remark}
 L'unimodularité est équivalente au fait que le morphisme adjoint $\varphi_Q : H_2(X;\ZZ) \to \mathrm{Hom}(H_2(X;\ZZ), \ZZ)$ défini par $\varphi_Q(\alpha)(\beta) = Q(\alpha,\beta)$ est un isomorphisme.
 \end{remark}
@@ -415,32 +411,30 @@ La matrice de $Q$ dans la base $(h)$ est donc
 \end{exemple}
 
 %==============================================================================
-\subsection{Invariants}
+\subsection{Invariants topologiques via la forme d'intersection}
 %==============================================================================
 
-À toute forme bilinéaire symétrique on associe des invariants classiques qui permettent de la classifier. Pour la forme d'intersection $Q_X$ d'une $4$-variété $X$, les trois invariants principaux sont le rang, la signature et la parité.
+Les invariants algébriques classiques des formes bilinéaires symétriques entières, introduits dans la section [?], trouvent ici une interprétation topologique directe lorsqu'on les applique à la forme d'intersection $Q_X$ d'une $4$-variété $X$. 
 
-\subsubsection{Rang}
+\subsubsection{Rang et nombres de Betti}
 
-En choisissant une base de $H_2(X;\mathbb{Z})$, la forme $Q_X$ est représentée par une matrice symétrique à coefficients entiers. Le \emph{rang} de $Q_X$ est le rang de cette matrice, c'est-à-dire le nombre de lignes (ou colonnes) linéairement indépendantes. La dualité de Poincaré garantit que $Q_X$ est non dégénérée, de sorte que son rang coïncide avec $b_2(X)$, le deuxième nombre de Betti de $X$.
+Puisque le $\mathbb{Z}$-module libre $H_2(X;\mathbb{Z}) / \operatorname{Tors}$ est de rang fini, le rang de la forme d'intersection $Q_X$ est bien défini. La dualité de Poincaré garantit que $Q_X$ est unimodulaire, et donc en particulier non dégénérée. Par conséquent, son rang coïncide exactement avec le deuxième nombre de Betti de la variété :
+\[
+\operatorname{rg}(Q_X) = b_2(X).
+\]
 
 \subsubsection{Signature}
 
-En tensorisant par $\mathbb{R}$, on obtient une forme quadratique réelle que l'on peut diagonaliser par le théorème de Sylvester. On note $b_2^+$ (resp.\ $b_2^-$) le nombre de coefficients diagonaux strictement positifs (resp.\ strictement négatifs), de sorte que $b_2^+ + b_2^- = b_2(X)$. La \emph{signature} de $Q_X$ est alors
-\[
-  \sigma(X) = b_2^+ - b_2^-.
-\]
-On dit que $Q_X$ est \emph{définie positive} si $b_2^- = 0$, \emph{définie négative} si $b_2^+ = 0$, et \emph{indéfinie} sinon.
+De même, la signature $\sigma(Q_X) = b_2^+ - b_2^-$ définie précédemment devient un invariant fondamental de la $4$-variété, que l'on note simplement $\sigma(X)$. Les dimensions $b_2^+$ et $b_2^-$ des sous-espaces maximaux sur lesquels $Q_X \otimes \mathbb{R}$ est définie positive (resp. négative) caractérisent le type de la variété : on dit que $X$ est \emph{définie} (positive ou négative) ou \emph{indéfinie} selon la nature algebrique de sa forme.
 
-La signature se comporte bien vis-à-vis des opérations naturelles sur les variétés. D'une part, renverser l'orientation de $X$ change le signe de $Q_X$, donc
+La signature est particulièrement robuste vis-à-vis des opérations chirurgicales et topologiques sur les variétés. Notamment, le renversement d'orientation inversant le signe de la forme, on a immédiatement :
 \[
-  \sigma(-X) = -\sigma(X).
+\sigma(-X) = -\sigma(X).
 \]
-D'autre part, la forme d'intersection d'une somme connexe est la somme directe des formes d'intersection des deux facteurs, d'où
+De plus, la structure additive de l'homologie par rapport à la somme connexe implique que la forme d'intersection d'une somme connexe est la somme directe des formes de chaque facteur. La signature étant un invariant additif pour la somme directe, on obtient :
 \[
-  \sigma(X_1 \mathbin{\#} X_2) = \sigma(X_1) + \sigma(X_2).
+\sigma(X_1 \mathbin{\#} X_2) = \sigma(X_1) + \sigma(X_2).
 \]
-
 Enfin, la signature est une obstruction au cobordisme orienté :
 
 \begin{lemma}
@@ -452,10 +446,6 @@ La réciproque de ce lemme est fausse en général : la nullité de la signature
 \begin{theorem}[Rokhlin]
 Si $M^4$ est une $4$-variété lisse orientée avec $\sigma(Q_M) = 0$, alors il existe une $5$-variété lisse orientée $W^5$ telle que $\partial W = M$.
 \end{theorem}
-
-\subsubsection{Parité}
-
-La forme $Q_X$ est dite \emph{paire} si $Q_X(\alpha,\alpha)$ est pair pour tout $\alpha \in H_2(X;\mathbb{Z})$, et \emph{impaire} sinon. Autrement dit, on regarde si toutes les auto-intersections des classes de $H_2(X;\mathbb{Z})$ sont paires.
 \newpage
 
 %========================================================================
